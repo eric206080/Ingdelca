@@ -21,7 +21,11 @@ def write(rel, html):
 # =========================================================================== INICIO
 HOME_FAQS = [
     ("¿Qué servicios ofrece INGDELCA?",
-     "Ofrecemos ingeniería y obras hidráulicas de principio a fin: topografía y aerofotogrametría con dron, modelamiento hidráulico y de inundaciones, diseño hidráulico, defensas ribereñas y enrocados, descolmatación de cauces, sistemas de bombeo, montaje de tuberías, aforos de caudal, consultoría y supervisión."),
+     "Somos especialistas en ingeniería hidráulica y mecánica de fluidos, de principio a fin: ingeniería de detalle para transporte de fluidos, centrales hidroeléctricas (estudios, montaje de turbinas y mantenimiento), topografía y aerofotogrametría con dron, modelamiento hidráulico y de inundaciones, diseño hidráulico, defensas ribereñas y enrocados, descolmatación de cauces, sistemas de bombeo, montaje de tuberías, aforos de caudal, consultoría y supervisión."),
+    ("¿Trabajan solo con agua o también con otros fluidos?",
+     "Somos especialistas en mecánica de fluidos: además de agua, hacemos ingeniería de detalle y bombeo para lodos, relaves y pulpas, floculantes y reactivos químicos, agua de mar, hidrocarburos y también sistemas de ventilación y flujo de aire."),
+    ("¿Hacen mantenimiento de centrales hidroeléctricas?",
+     "Sí. Realizamos estudios hidroenergéticos, montaje de turbinas y equipos, mantenimiento de centrales hidroeléctricas y la protección de sus captaciones, conducciones y descargas frente a crecidas."),
     ("¿INGDELCA cuenta con certificaciones ISO?",
      "Sí. INGDELCA tiene sus sistemas de gestión certificados en ISO 9001 (calidad), ISO 14001 (ambiental), ISO 45001 (seguridad y salud en el trabajo) e ISO 37001 (antisoborno), emitidos por International Certification Organization (ICO) y vigentes hasta noviembre de 2027."),
     ("¿Ejecutan obras o solo hacen estudios?",
@@ -36,21 +40,24 @@ HOME_FAQS = [
 
 # Divisiones con fotos reales de obra
 DIVISIONS = [
-    # (título, descripción, foto, alt, enlace)
+    # (título, descripción, foto obras o ruta images/, alt, enlace)
+    ("Ingeniería de detalle y transporte de fluidos", "Agua, lodos, relaves, floculantes y reactivos, agua de mar, hidrocarburos y aire: cálculo, diseño e ingeniería de detalle.", "images/proyecto-2.jpg", "Tuberías, válvulas y bombas de un sistema de transporte de fluidos", "transporte-de-fluidos/"),
+    ("Centrales hidroeléctricas", "Estudios hidroenergéticos, montaje de turbinas, mantenimiento de centrales y protección de captaciones y descargas.", "mod-bocatoma", "Bocatoma de una central hidroeléctrica sobre el río", "centrales-hidroelectricas/"),
+    ("Modelamiento hidráulico e inundaciones", "Simulación 2D de ríos, mapas de peligro por inundación, redes a presión, canales y golpe de ariete.", "mod-dique", "Resultado de modelamiento hidráulico 2D con tirantes y velocidades en el sector de un dique", "modelamiento-hidraulico/"),
+    ("Sistemas de bombeo", "Diseño, selección, montaje, operación y puesta en marcha, incluido el bombeo de lodos a gran escala.", "sb-noche", "Personal de INGDELCA operando bombas sumergibles sobre pontón durante la noche", "sistemas-de-bombeo/"),
+    ("Diseño hidráulico y expedientes técnicos", "Conducciones, canales, sifones, captaciones, redes y expedientes técnicos para agua; montaje de tuberías GRP, HDPE y acero.", "images/proyecto-7.jpg", "Instalación de tubería GRP para un sifón invertido en cruce de quebrada", "diseno-hidraulico/"),
     ("Defensas ribereñas y enrocados", "Enrocados, reacomodo de roca, geotextil, uñas de protección, descolmatación y encauzamiento de cauces.", "yaru-enrocado-final", "Enrocado de protección fluvial terminado en la zona de descarga de una central hidroeléctrica", "defensas-riberenas/"),
     ("Topografía y aerofotogrametría", "Vuelos con dron y GNSS diferencial: ortomosaicos, modelos digitales del terreno y curvas de nivel.", "aero-casa-maquinas", "Vista aérea con dron de la casa de máquinas de una central hidroeléctrica", "topografia-aerofotogrametria/"),
-    ("Modelamiento hidráulico e inundaciones", "Simulación 2D de ríos, mapas de peligro por inundación y análisis de redes y transitorios.", "mod-dique", "Resultado de modelamiento hidráulico 2D con tirantes y velocidades en el sector de un dique", "modelamiento-hidraulico/"),
-    ("Sistemas de bombeo", "Diseño, selección, montaje, operación y puesta en marcha, incluido el bombeo de lodos a gran escala.", "sb-noche", "Personal de INGDELCA operando bombas sumergibles sobre pontón durante la noche", "sistemas-de-bombeo/"),
-    ("Diseño hidráulico y montaje de tuberías", "Conducciones, canales, sifones, captaciones y montaje de tuberías GRP, HDPE y acero.", None, "Instalación de tubería GRP para un sifón invertido en cruce de quebrada", "diseno-hidraulico/"),
-    ("Energía e hidroeléctricas", "Captaciones, bocatomas, conducción y protección de infraestructura de centrales hidroeléctricas.", "mod-bocatoma", "Bocatoma de una central hidroeléctrica sobre el río", "proyectos/ch-yarucaya/"),
+    ("Aforos de caudal", "Medición de caudales en canales, ríos y tuberías, con informe técnico de resultados.", "images/hero.jpg", "Canal de una planta donde se realizan aforos de caudal", "aforos-de-caudal/"),
+    ("Consultoría y supervisión", "Asesoría especializada, revisión de proyectos y expedientes, auditorías técnicas y supervisión de obras hidráulicas.", "yaru-geotextil-talud", "Supervisión en campo de una obra hidráulica", "#contacto"),
 ]
 
 SECTORS = [
     ("Minería", "Sistemas de bombeo, drenaje de minas, conducción de relaves y abastecimiento de agua para operaciones mineras.", "cube", ["Relaves", "Drenaje", "Agua fresca"]),
-    ("Energía", "Centrales hidroeléctricas: estudios de inundación, protección de cauces, captaciones y conducción.", "bolt", ["Hidroeléctricas", "Defensas ribereñas"]),
+    ("Energía", "Centrales hidroeléctricas: estudios hidroenergéticos, montaje de turbinas, mantenimiento, captaciones, conducción y protección de cauces.", "bolt", ["Hidroeléctricas", "Turbinas", "Defensas ribereñas"]),
     ("Agua y saneamiento", "PTAR, bombeo de lodos, redes de distribución, reservorios y sistemas de reúso.", "globe", ["PTAR", "Lodos", "Redes"]),
     ("Hidrocarburos", "Diseño de sistemas de transporte de fluidos, estaciones de bombeo y facilidades de superficie para oil & gas.", "fire", ["Oleoductos", "Refinerías"]),
-    ("Industria y pesca", "Bombeo de agua de mar, enfriamiento, procesos industriales y tratamiento de efluentes.", "flask", ["Agua de mar", "Efluentes"]),
+    ("Industria y pesca", "Transporte de floculantes y reactivos, bombeo de agua de mar, enfriamiento, ventilación y tratamiento de efluentes.", "flask", ["Floculantes", "Agua de mar", "Ventilación"]),
     ("Sector público", "Estudios, expedientes y obras de infraestructura hidráulica para entidades públicas.", "building", ["Expedientes", "Obras"]),
 ]
 
@@ -102,9 +109,9 @@ def build_home():
     root, hp = "", ""
 
     def div_img(foto, alt):
-        if foto:
-            return pic(foto, alt, 'h-full w-full object-cover transition-transform duration-700 group-hover:scale-105')
-        return f'<img src="images/proyecto-7.jpg" alt="{alt}" width="800" height="600" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">'
+        if foto.startswith("images/"):
+            return f'<img src="{foto}" alt="{alt}" width="800" height="600" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">'
+        return pic(foto, alt, 'h-full w-full object-cover transition-transform duration-700 group-hover:scale-105')
 
     divisions_html = "\n".join(f"""                <a href="{link}" class="reveal card card-hover group flex flex-col overflow-hidden">
                     <div class="relative aspect-[16/10] overflow-hidden bg-slate-200">
@@ -178,14 +185,14 @@ def build_home():
     ld = jsonld([
         org_schema(),
         {"@type": "WebSite", "@id": SITE + "/#web", "url": SITE + "/", "name": "INGDELCA", "inLanguage": "es-PE", "publisher": {"@id": ORG_ID}},
-        {"@type": "WebPage", "@id": SITE + "/#webpage", "url": SITE + "/", "name": "INGDELCA | Ingeniería y Obras Hidráulicas en Perú", "isPartOf": {"@id": SITE + "/#web"}, "about": {"@id": ORG_ID}, "inLanguage": "es-PE"},
+        {"@type": "WebPage", "@id": SITE + "/#webpage", "url": SITE + "/", "name": "INGDELCA | Especialistas en Ingeniería Hidráulica de Precisión y Mecánica de Fluidos", "isPartOf": {"@id": SITE + "/#web"}, "about": {"@id": ORG_ID}, "inLanguage": "es-PE"},
         faq_schema(HOME_FAQS),
     ])
 
     html = head(
-        title="INGDELCA | Ingeniería y Obras Hidráulicas en Perú · Certificada ISO",
-        description="Ingeniería y obras hidráulicas en Perú: topografía con dron, modelamiento de inundaciones, defensas ribereñas, enrocados, sistemas de bombeo y montaje de tuberías. Certificada ISO 9001, 14001, 45001 y 37001.",
-        og_title="INGDELCA | Ingeniería y Obras Hidráulicas · Certificada ISO",
+        title="INGDELCA | Ingeniería Hidráulica de Precisión y Mecánica de Fluidos · Perú",
+        description="Especialistas en ingeniería hidráulica de precisión y mecánica de fluidos en Perú: transporte de fluidos, centrales hidroeléctricas, modelamiento, bombeo, defensas ribereñas y topografía con dron. Certificados ISO 9001, 14001, 45001 y 37001.",
+        og_title="INGDELCA | Especialistas en Ingeniería Hidráulica de Precisión",
         path="/", root=root, jsonld_html=ld, preload_poster=True)
     html += navbar(root, hp)
     html += f"""
@@ -201,13 +208,13 @@ def build_home():
                 <div class="grid items-center gap-12 lg:grid-cols-12">
                     <div class="text-center lg:col-span-7 lg:text-left">
                         <a href="certificaciones/" class="glass mb-8 inline-flex animate-fade-up items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white hover:bg-white/20">
-                            {icon('badge','w-4 h-4 text-accent-300')} Certificada ISO 9001 · 14001 · 45001 · 37001
+                            {icon('badge','w-4 h-4 text-accent-300')} Especialistas en ingeniería hidráulica · Certificados ISO
                         </a>
                         <h1 class="mb-6 animate-fade-up font-heading text-4xl font-extrabold leading-[1.06] tracking-tight text-white [animation-delay:.15s] sm:text-5xl lg:text-6xl xl:text-7xl">
-                            Ingeniería y obras <span class="underline-brand">hidráulicas</span><br><span class="text-gradient">del estudio a la obra</span>
+                            Ingeniería <span class="underline-brand">Hidráulica</span><br><span class="text-gradient">de Alta Precisión</span>
                         </h1>
                         <p class="mx-auto mb-10 max-w-2xl animate-fade-up text-lg leading-relaxed text-white/85 [animation-delay:.3s] sm:text-xl lg:mx-0">
-                            Levantamos el terreno con dron, modelamos el río, diseñamos la solución y la <strong class="font-semibold text-white">ejecutamos en campo</strong>: defensas ribereñas, sistemas de bombeo y obras hidráulicas para minería, energía, saneamiento e industria.
+                            Especialistas en <strong class="font-semibold text-white">mecánica de fluidos</strong>: estudios, ingeniería de detalle, obra, montaje y mantenimiento. Agua, lodos, relaves, floculantes, hidrocarburos y aire, para minería, energía, saneamiento e industria.
                         </p>
                         <div class="flex animate-fade-up flex-col justify-center gap-4 [animation-delay:.45s] sm:flex-row lg:justify-start">
                             <a href="{wa()}" target="_blank" rel="noopener" data-track="hero" class="btn-whatsapp !px-8 !py-4 text-base">{solid(WA_PATH)} Cotizar por WhatsApp</a>
@@ -249,7 +256,7 @@ def build_home():
     <!-- DIVISIONES -->
     <section id="servicios" class="relative py-24 lg:py-28">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {section_head('Lo que hacemos', 'Ingeniería, obras y <span class="text-primary-600">mantenimiento</span>', 'Integramos el estudio del comportamiento hidráulico, el diseño de la solución y la capacidad de ejecutarla en campo.')}
+            {section_head('Especialidades', 'Ingeniería hidráulica y <span class="text-primary-600">mecánica de fluidos</span>', 'Del estudio del comportamiento del fluido a la ingeniería de detalle, la obra, el montaje y el mantenimiento.')}
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
 {divisions_html}
             </div>
@@ -268,7 +275,7 @@ def build_home():
             <div class="reveal mt-12 text-center">
                 <p class="mb-4 text-slate-500">También realizamos:</p>
                 <div class="flex flex-wrap justify-center gap-3">
-                    {''.join(f'<span class="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-600 ring-1 ring-slate-200">{x}</span>' for x in ['Aforos de caudal','Movimiento de tierras','Descolmatación de cauces','Tratamiento de aguas','Redes de distribución','Golpe de ariete','Supervisión de obras','Expedientes técnicos'])}
+                    {''.join(f'<span class="rounded-full bg-white px-4 py-2 text-sm font-medium text-slate-600 ring-1 ring-slate-200">{x}</span>' for x in ['Ventilación y flujo de aire','Transporte de floculantes y reactivos','Relaves y pulpas','Golpe de ariete','Tuberías forzadas','Movimiento de tierras','Tratamiento de aguas','Redes de distribución'])}
                 </div>
             </div>
         </div>
@@ -362,8 +369,8 @@ def build_home():
                 </div>
                 <div class="reveal">
                     <span class="eyebrow mb-4 bg-primary-50 text-primary-700 ring-1 ring-primary-100">{icon('badge','w-4 h-4')} ¿Por qué INGDELCA?</span>
-                    <h2 class="mb-6 font-heading text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">Una sola empresa, <span class="text-primary-600">del estudio a la obra</span></h2>
-                    <p class="mb-8 text-lg leading-relaxed text-slate-600">Somos una empresa peruana de soluciones integrales de ingeniería, infraestructura hidráulica, obras civiles, energía y sistemas electromecánicos. Integramos conocimiento técnico y capacidad operativa para desarrollar proyectos desde el diseño hasta su ejecución, puesta en marcha y mantenimiento.</p>
+                    <h2 class="mb-6 font-heading text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">Especialistas en ingeniería hidráulica, <span class="text-primary-600">del estudio a la obra</span></h2>
+                    <p class="mb-8 text-lg leading-relaxed text-slate-600">Somos una empresa peruana especializada en ingeniería hidráulica de precisión y mecánica de fluidos, con soluciones integrales en infraestructura hidráulica, centrales hidroeléctricas, obras civiles y sistemas electromecánicos. Integramos conocimiento técnico y capacidad operativa para desarrollar proyectos desde el diseño hasta su ejecución, puesta en marcha y mantenimiento.</p>
                     <div class="space-y-6">
                         <div class="flex gap-4"><div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-700">{icon('chart')}</div><div><h3 class="mb-1 font-heading font-bold text-navy">Decisiones respaldadas por datos</h3><p class="text-sm text-slate-600">Topografía de precisión y modelamiento hidráulico antes de intervenir: cada obra responde a un sustento técnico.</p></div></div>
                         <div class="flex gap-4"><div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-accent-50 text-accent-700">{icon('cube')}</div><div><h3 class="mb-1 font-heading font-bold text-navy">Capacidad de ejecución en campo</h3><p class="text-sm text-slate-600">Personal, maquinaria y logística para ejecutar, montar y operar, también en zonas alejadas.</p></div></div>
@@ -460,6 +467,66 @@ def build_home():
 
 # =========================================================================== PÁGINAS DE SERVICIO
 SERVICE_CONTENT = {
+    "transporte-de-fluidos": dict(
+        title="Ingeniería de Detalle para Transporte de Fluidos en Perú | Mecánica de Fluidos | INGDELCA",
+        desc="Ingeniería de detalle para el transporte de fluidos en Perú: agua, lodos, relaves y pulpas, floculantes y reactivos, agua de mar, hidrocarburos y aire (ventilación). Cálculo hidráulico, tuberías, bombas y transitorios.",
+        h1="Ingeniería de detalle para transporte de fluidos: líquidos, lodos y aire",
+        kicker="Especialidad · Mecánica de fluidos",
+        lead="No solo agua. Calculamos y diseñamos sistemas para transportar cualquier fluido de forma segura y eficiente: lodos, relaves, floculantes y reactivos, agua de mar, hidrocarburos y también aire en sistemas de ventilación.",
+        img="proyecto-2.jpg", img_alt="Tuberías, válvulas y bombas de un sistema de transporte de fluidos",
+        includes=[
+            ("calc", "Cálculo hidráulico", "Pérdidas de carga, velocidades, presiones y curva del sistema según las propiedades de cada fluido: densidad, viscosidad y contenido de sólidos."),
+            ("columns", "Tuberías y materiales", "Selección de diámetros, clases y materiales (acero, inoxidable, HDPE, GRP) según presión, abrasión y compatibilidad química."),
+            ("bolt", "Bombeo de fluidos especiales", "Bombas para lodos, relaves, pulpas, floculantes y reactivos: tipo de bomba, sellos, NPSH y potencia."),
+            ("globe", "Ventilación y flujo de aire", "Cálculo de caudales de aire, ductos, pérdidas y selección de ventiladores para ventilación industrial y de interiores."),
+            ("chart", "Golpe de ariete y transitorios", "Análisis de sobrepresiones por arranque, parada o cierre de válvulas y definición de protecciones."),
+            ("doc", "Ingeniería de detalle", "Memorias de cálculo, diagramas de flujo, planos e isométricos, listas de materiales y especificaciones técnicas para comprar y construir."),
+        ],
+        experience=[("Transporte de floculantes", "Ingeniería para el transporte de floculantes en planta industrial (Unicon)."),
+                    ("Bombeo de lodos a gran escala", "Pozas de hasta 90 000 m³ en la PTAR San Bartolo."),
+                    ("Conducciones y sifones", "Diseño de conducciones, sifones invertidos y by-pass hidráulicos.")],
+        apps=["Floculantes, reactivos y químicos", "Relaves, pulpas y lodos mineros", "Lodos de plantas de tratamiento", "Agua de mar y salmueras", "Hidrocarburos y combustibles", "Ventilación industrial y de interiores"],
+        quote_data=["Fluido a transportar y sus propiedades (densidad, viscosidad, % de sólidos, temperatura)", "Caudal requerido", "Trazo, desniveles y longitudes", "Materiales o equipos existentes", "Normas o especificaciones del cliente", "Alcance: cálculo, ingeniería de detalle, suministro o montaje"],
+        faqs=[
+            ("¿Trabajan con fluidos distintos al agua?", "Sí. Somos especialistas en mecánica de fluidos: diseñamos sistemas para lodos, relaves y pulpas, floculantes y reactivos químicos, agua de mar, hidrocarburos y aire."),
+            ("¿Qué incluye la ingeniería de detalle?", "Los cálculos hidráulicos, la selección de equipos y materiales, planos e isométricos, listas de materiales y especificaciones técnicas: todo lo necesario para cotizar, comprar y construir sin improvisar en obra."),
+            ("¿También diseñan sistemas de ventilación?", "Sí. El aire también es un fluido: calculamos caudales, ductos y pérdidas, y seleccionamos ventiladores para ventilación industrial y de interiores."),
+        ],
+        gallery=[("sb-bomba", "Bomba sumergible para lodos montada sobre pontón"), ("sb-descarga", "Descarga de lodos por tubería flexible"), ("sb-noche", "Operación de bombeo de lodos")],
+        case=("ptar-san-bartolo", "Ver el bombeo de lodos en la PTAR San Bartolo"),
+        cta="Hola INGDELCA, quiero cotizar ingeniería para transporte de fluidos",
+        related=["sistemas-de-bombeo", "modelamiento-hidraulico"],
+    ),
+    "centrales-hidroelectricas": dict(
+        title="Centrales Hidroeléctricas en Perú | Montaje de Turbinas, Mantenimiento y Estudios | INGDELCA",
+        desc="Servicios para centrales hidroeléctricas en Perú: estudios y cálculos hidroenergéticos, montaje de turbinas, mantenimiento de centrales, captaciones, conducciones y protección frente a crecidas.",
+        h1="Centrales hidroeléctricas: estudios, montaje de turbinas y mantenimiento",
+        kicker="Especialidad · Energía hidroeléctrica",
+        lead="Acompañamos a las centrales hidroeléctricas en todo su ciclo: estudios y cálculos hidroenergéticos, montaje de turbinas y equipos, mantenimiento y protección de su infraestructura hidráulica frente al río.",
+        img="mod-bocatoma", img_alt="Bocatoma de una central hidroeléctrica sobre el río",
+        includes=[
+            ("calc", "Estudios hidroenergéticos", "Caudales de diseño, salto neto, pérdidas en la conducción, potencia y energía generable."),
+            ("bolt", "Montaje de turbinas", "Montaje y alineamiento de turbinas y equipos electromecánicos, con pruebas y puesta en marcha."),
+            ("shield", "Mantenimiento de centrales", "Mantenimiento de obras hidráulicas y equipos: captación, desarenador, canales, tubería forzada, compuertas y casa de máquinas."),
+            ("columns", "Captación y conducción", "Diseño y rehabilitación de bocatomas, desarenadores, canales, cámaras de carga y tuberías forzadas."),
+            ("globe", "Protección frente a crecidas", "Modelamiento de inundaciones, defensas ribereñas, enrocados y descolmatación de cauces."),
+            ("doc", "Expedientes técnicos", "Memorias, planos, metrados, especificaciones y presupuestos para rehabilitaciones y ampliaciones."),
+        ],
+        experience=[("C.H. Yarucaya – río Huaura", "Topografía con dron de 246 ha, estudio de inundaciones con IBER, 245 ml de enrocado y descolmatación del cauce."),
+                    ("Pequeña central hidroeléctrica", "Diseño de obras de captación, conducción y casa de máquinas."),
+                    ("By-pass hidráulico", "Derivación de caudales para el mantenimiento de infraestructura existente.")],
+        apps=["Centrales de pasada y pequeñas centrales", "Bocatomas y desarenadores", "Tuberías forzadas", "Casa de máquinas y descargas", "Rehabilitación y repotenciación", "Mantenimiento antes de la temporada de avenidas"],
+        quote_data=["Nombre y ubicación de la central", "Potencia instalada y tipo de turbina", "Componente a intervenir", "Problema observado o alcance del estudio", "Información existente (planos, caudales, informes)", "Ventana de parada disponible"],
+        faqs=[
+            ("¿Realizan montaje de turbinas?", "Sí. Montamos turbinas y equipos electromecánicos, con alineamiento, pruebas y puesta en marcha."),
+            ("¿Qué incluye un estudio hidroenergético?", "Determina el caudal de diseño, el salto neto, las pérdidas en la conducción y, con ello, la potencia y la energía que puede generar la central."),
+            ("¿Pueden proteger la central frente a crecidas?", "Sí. Modelamos el río para identificar los sectores críticos y ejecutamos la protección, como en la C.H. Yarucaya."),
+        ],
+        gallery=[("aero-casa-maquinas", "Vista aérea de la casa de máquinas de una central"), ("mod-dique", "Modelamiento de crecidas en el sector dique–bocatoma"), ("yaru-enrocado-final", "Enrocado de protección en la zona de descarga")],
+        case=("ch-yarucaya", "Ver el caso C.H. Yarucaya"),
+        cta="Hola INGDELCA, quiero cotizar un servicio para una central hidroeléctrica",
+        related=["modelamiento-hidraulico", "defensas-riberenas"],
+    ),
     "defensas-riberenas": dict(
         title="Defensas Ribereñas y Enrocados en Perú | Descolmatación y Encauzamiento | INGDELCA",
         desc="Diseño y ejecución de defensas ribereñas en Perú: enrocados, reacomodo de roca, geotextil, uñas de protección, descolmatación, encauzamiento y ampliación de cauces. Empresa certificada ISO 9001, 14001 y 45001.",
@@ -668,6 +735,15 @@ def build_service(slug):
         </div>
     </section>
 """
+    if c.get("experience"):
+        exp_items = "".join(f'<li class="rounded-2xl bg-white p-5 ring-1 ring-slate-200/80"><p class="font-heading font-bold text-navy">{t}</p><p class="mt-1 text-sm text-slate-600">{d}</p></li>' for t, d in c["experience"])
+        platform_box_exp = f"""
+            <div class="reveal mt-12 rounded-3xl bg-primary-50 p-8 ring-1 ring-primary-100">
+                <h3 class="mb-5 flex items-center gap-2 font-heading text-xl font-bold text-navy">{icon('badge','w-6 h-6 text-accent-600')} Experiencia</h3>
+                <ul class="grid gap-4 md:grid-cols-3">{exp_items}</ul>
+            </div>"""
+    else:
+        platform_box_exp = ""
     platform_box = ""
     if slug == "sistemas-de-bombeo":
         platform_box = f"""
@@ -708,7 +784,7 @@ def build_service(slug):
             {section_head('Qué incluye', f'Alcance del servicio de <span class="text-primary-600">{name.lower()}</span>', ic='clipboard')}
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 {includes}
-            </div>{platform_box}
+            </div>{platform_box_exp}{platform_box}
         </div>
     </section>
 {gallery_sec}
@@ -1138,7 +1214,7 @@ def build_llms_txt():
     L = []
     L.append("# INGDELCA Ingeniería & Consultoría S.A.C.")
     L.append("")
-    L.append("> Empresa peruana de ingeniería y obras hidráulicas, del estudio a la obra: topografía y aerofotogrametría con dron, "
+    L.append("> Empresa peruana especialista en ingeniería hidráulica de precisión y mecánica de fluidos, del estudio a la obra: ingeniería de detalle para transporte de fluidos (agua, lodos, relaves, floculantes y reactivos, agua de mar, hidrocarburos y aire/ventilación), centrales hidroeléctricas (estudios hidroenergéticos, montaje de turbinas y mantenimiento), expedientes técnicos, topografía y aerofotogrametría con dron, "
              "modelamiento hidráulico y de inundaciones, diseño hidráulico, defensas ribereñas y enrocados, descolmatación de cauces, "
              "sistemas de bombeo (incluido bombeo de lodos), montaje de tuberías y aforos de caudal, para minería, energía, "
              "saneamiento, industria y entidades públicas en todo el Perú. Certificada ISO 9001, ISO 14001, ISO 45001 e ISO 37001.")
@@ -1160,6 +1236,7 @@ def build_llms_txt():
              "245 ml de enrocado nuevo; reacomodo de enrocado con geotextil de 300 g/m² en la zona de descarga (~40 m); descolmatación de ~50 ml y ampliación del cauce en 3.50 m.")
     L.append(f"- [Bombeo de lodos – PTAR San Bartolo (Lima)]({SITE}/proyectos/ptar-san-bartolo/): pozas de hasta 90 000 m³, bombas sumergibles sobre pontones, "
              "grupo electrógeno de 170 HP y variador de velocidad para el arranque; operación de día y de noche.")
+    L.append("- Transporte de floculantes – Unicon: ingeniería para el transporte de floculantes en planta industrial.")
     L.append(f"- [Todos los proyectos]({SITE}/proyectos/)")
     L.append("")
     L.append("## Certificaciones")
