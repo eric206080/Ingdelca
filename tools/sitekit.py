@@ -172,7 +172,8 @@ def head(*, title, description, path, root, jsonld_html="", og_title=None, prelo
     <meta name="geo.region" content="PE-LIM">
     <meta name="geo.placename" content="Lima">
     <link rel="canonical" href="{url}">
-    <!-- Google Search Console: pega aquí la meta de verificación si usas ese método -->
+    <!-- Google Search Console / Bing Webmaster Tools: pega aquí sus metas de verificación si usas ese método -->
+    <link rel="alternate" type="text/plain" title="Resumen para asistentes de IA" href="{SITE}/llms.txt">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="INGDELCA">
