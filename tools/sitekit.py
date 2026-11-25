@@ -84,6 +84,8 @@ def solid(path, cls="w-5 h-5"):
 
 # ---------------------------------------------------------------- servicios (para menús y schema)
 SERVICE_PAGES = [
+    ("transporte-de-fluidos", "Ingeniería de Detalle y Transporte de Fluidos", "columns"),
+    ("centrales-hidroelectricas", "Centrales Hidroeléctricas: Montaje y Mantenimiento", "bolt"),
     ("defensas-riberenas", "Defensas Ribereñas y Enrocados", "shield"),
     ("topografia-aerofotogrametria", "Topografía y Aerofotogrametría con Dron", "globe"),
     ("modelamiento-hidraulico", "Modelamiento Hidráulico e Inundaciones", "chart"),
@@ -114,7 +116,7 @@ def org_schema():
         "url": SITE + "/",
         "logo": SITE + "/images/logo-ingdelca.png",
         "image": SITE + "/images/og-image.jpg",
-        "description": "Empresa peruana de ingeniería y obras hidráulicas: topografía con dron, modelamiento hidráulico, diseño, defensas ribereñas, sistemas de bombeo y mantenimiento para minería, energía, saneamiento, industria y entidades públicas. Certificada ISO 9001, 14001, 45001 y 37001.",
+        "description": "Empresa peruana especialista en ingeniería hidráulica de precisión y mecánica de fluidos: ingeniería de detalle para transporte de fluidos (agua, lodos, relaves, floculantes, hidrocarburos y aire), centrales hidroeléctricas (estudios, montaje de turbinas y mantenimiento), topografía con dron, modelamiento hidráulico, diseño, defensas ribereñas, sistemas de bombeo y mantenimiento para minería, energía, saneamiento, industria y entidades públicas. Certificada ISO 9001, 14001, 45001 y 37001.",
         "taxID": RUC,
         "hasCredential": [
             {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": f"{n} – {sis}", "identifier": num,
@@ -131,7 +133,7 @@ def org_schema():
         ],
         "contactPoint": {"@type": "ContactPoint", "telephone": "+51948579939", "email": EMAIL, "contactType": "sales", "areaServed": "PE", "availableLanguage": ["es"]},
         "sameAs": [FACEBOOK, LINKEDIN],
-        "knowsAbout": ["Defensas ribereñas", "Enrocados", "Descolmatación de cauces", "Aerofotogrametría con dron", "Topografía GNSS", "Modelamiento de inundaciones", "Ingeniería hidráulica", "Mecánica de fluidos", "Sistemas de bombeo", "Selección de bombas", "Modelamiento hidráulico", "Diseño de canales", "Aforos de caudal", "Golpe de ariete"],
+        "knowsAbout": ["Ingeniería hidráulica de precisión", "Mecánica de fluidos", "Transporte de fluidos", "Ingeniería de detalle", "Transporte de floculantes", "Bombeo de lodos y relaves", "Ventilación", "Centrales hidroeléctricas", "Montaje de turbinas", "Mantenimiento de centrales hidroeléctricas", "Estudios hidroenergéticos", "Expedientes técnicos", "Defensas ribereñas", "Enrocados", "Descolmatación de cauces", "Aerofotogrametría con dron", "Topografía GNSS", "Modelamiento de inundaciones", "Ingeniería hidráulica", "Mecánica de fluidos", "Sistemas de bombeo", "Selección de bombas", "Modelamiento hidráulico", "Diseño de canales", "Aforos de caudal", "Golpe de ariete"],
         "hasOfferCatalog": {
             "@type": "OfferCatalog", "name": "Servicios de ingeniería hidráulica",
             "itemListElement": [
@@ -278,7 +280,7 @@ def footer(root, home_prefix):
             <div class="grid gap-10 border-b border-white/10 pb-12 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
                     <div class="mb-4">{logo_block(root, h or '#inicio', dark=True)}</div>
-                    <p class="mb-6 text-sm leading-relaxed">Ingeniería y obras hidráulicas del estudio a la obra: topografía, modelamiento, defensas ribereñas, bombeo y mantenimiento para minería, energía, saneamiento e industria en el Perú.</p>
+                    <p class="mb-6 text-sm leading-relaxed">Especialistas en ingeniería hidráulica de precisión y mecánica de fluidos: transporte de fluidos, centrales hidroeléctricas, modelamiento, bombeo, defensas ribereñas y mantenimiento en el Perú.</p>
                     <div class="flex gap-3">
                         <a href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="INGDELCA en LinkedIn" class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white transition-colors hover:bg-primary-600">{solid(LI_PATH)}</a>
                         <a href="{FACEBOOK}" target="_blank" rel="noopener" aria-label="INGDELCA en Facebook" class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white transition-colors hover:bg-primary-600">{solid(FB_PATH)}</a>
