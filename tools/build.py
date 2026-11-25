@@ -41,8 +41,8 @@ HOME_FAQS = [
 # Divisiones con fotos reales de obra
 DIVISIONS = [
     # (título, descripción, foto obras o ruta images/, alt, enlace)
-    ("Ingeniería de detalle y transporte de fluidos", "Agua, lodos, relaves, floculantes y reactivos, agua de mar, hidrocarburos y aire: cálculo, diseño e ingeniería de detalle.", "images/proyecto-2.jpg", "Tuberías, válvulas y bombas de un sistema de transporte de fluidos", "transporte-de-fluidos/"),
-    ("Centrales hidroeléctricas", "Estudios hidroenergéticos, montaje de turbinas, mantenimiento de centrales y protección de captaciones y descargas.", "mod-bocatoma", "Bocatoma de una central hidroeléctrica sobre el río", "centrales-hidroelectricas/"),
+    ("Ingeniería de detalle y transporte de fluidos", "Agua, lodos, relaves, floculantes y reactivos, agua de mar, hidrocarburos y aire: cálculo, diseño e ingeniería de detalle.", "hc-tuberia-grp", "Inspección interior de tubería GRP de 1600 mm en un sifón", "transporte-de-fluidos/"),
+    ("Centrales hidroeléctricas", "Estudios hidroenergéticos, montaje de turbinas, mantenimiento de centrales y protección de captaciones y descargas.", "hc-turbina-francis", "Desmontaje de turbina Francis en casa de máquinas", "centrales-hidroelectricas/"),
     ("Modelamiento hidráulico e inundaciones", "Simulación 2D de ríos, mapas de peligro por inundación, redes a presión, canales y golpe de ariete.", "mod-dique", "Resultado de modelamiento hidráulico 2D con tirantes y velocidades en el sector de un dique", "modelamiento-hidraulico/"),
     ("Sistemas de bombeo", "Diseño, selección, montaje, operación y puesta en marcha, incluido el bombeo de lodos a gran escala.", "sb-noche", "Personal de INGDELCA operando bombas sumergibles sobre pontón durante la noche", "sistemas-de-bombeo/"),
     ("Diseño hidráulico y expedientes técnicos", "Conducciones, canales, sifones, captaciones, redes y expedientes técnicos para agua; montaje de tuberías GRP, HDPE y acero.", "images/proyecto-7.jpg", "Instalación de tubería GRP para un sifón invertido en cruce de quebrada", "diseno-hidraulico/"),
@@ -73,11 +73,14 @@ PROJECTS = [
 
 # Proyectos documentados recientes (fichas con foto propia)
 FEATURED = [
-    # (slug o ancla, foto, categoría, título, texto, sector, lugar, año)
+    # (enlace, foto, categoría, título, texto, sector, lugar, año)
     ("proyectos/ch-yarucaya/#proteccion", "yaru-enrocado-excavadora", "Defensa ribereña", "Protección fluvial con enrocado y geotextil", "245 ml de enrocado nuevo, reacomodo de enrocado con geotextil en la zona de descarga, y descolmatación y ampliación del cauce.", "Energía", "C.H. Yarucaya, Huaura", "2026"),
+    ("proyectos/sistema-huascacocha/", "hc-tuberia-grp", "Operación y mantenimiento", "Sistema de derivación Huascacocha – Rímac", "Operación de la estación de bombeo de hasta 2.63 m³/s, conducción de 30 km por canales y sifones, e inspección y mantenimiento a 4 500 m s. n. m.", "Saneamiento", "Junín – Lima", ""),
     ("proyectos/ch-yarucaya/#modelamiento", "mod-casa-maquinas", "Modelamiento hidráulico", "Evaluación del peligro por inundación del río Huaura", "Modelamiento 2D con IBER para periodos de retorno de 140, 200 y 500 años, con mapas de tirantes, velocidades y peligro.", "Energía", "C.H. Yarucaya, Huaura", "2026"),
-    ("proyectos/ch-yarucaya/#topografia", "aero-gnss-bocatoma", "Topografía", "Levantamiento aerofotogramétrico con dron y GNSS", "246 ha levantadas desde la bocatoma hasta la casa de máquinas: ortomosaico, MDT, MDS y curvas de nivel cada 0.5 m.", "Energía", "C.H. Yarucaya, Huaura", "2026"),
+    ("proyectos/sistema-floculante-unicon/", "un-tablero-equipo", "Transporte de fluidos", "Sistema de transporte de fluido con floculante", "Puesta en marcha, control de caudal, presurización de la línea y automatización con PLC en planta de Unicon.", "Industria", "Cajamarquilla, Lima", "2021"),
+    ("proyectos/antamina-lavado-de-agregados/", "am-reservorio-plano", "Ingeniería de detalle", "Agua y descarga de lodos para planta de lavado de agregados", "Poza de 5 500 m³, línea HDPE de 10\", succión e impulsión de 80 l/s y descarga de lodos para Antamina.", "Minería", "Áncash", "2022"),
     ("proyectos/ptar-san-bartolo/", "sb-noche-panoramica", "Bombeo", "Bombeo de lodos en pozas de hasta 90 000 m³", "Bombas sumergibles sobre pontones, grupo electrógeno de 170 HP y variador de velocidad para el arranque, con toda la logística a cargo de INGDELCA.", "Saneamiento", "PTAR San Bartolo, Lima", ""),
+    ("proyectos/ch-yarucaya/#topografia", "aero-gnss-bocatoma", "Topografía", "Levantamiento aerofotogramétrico con dron y GNSS", "246 ha levantadas desde la bocatoma hasta la casa de máquinas: ortomosaico, MDT, MDS y curvas de nivel cada 0.5 m.", "Energía", "C.H. Yarucaya, Huaura", "2026"),
 ]
 
 CAPACITY = [
@@ -140,7 +143,7 @@ def build_home():
 
     featured_html = "\n".join(f"""                <a href="{link}" class="reveal card group flex flex-col overflow-hidden hover:shadow-xl hover:shadow-primary-900/10">
                     <div class="relative aspect-[16/10] overflow-hidden bg-slate-200">
-                        {pic(foto, t, 'h-full w-full object-cover transition-transform duration-700 group-hover:scale-105', sizes='(min-width:1024px) 50vw, 100vw')}
+                        {pic(foto, t, 'h-full w-full object-cover transition-transform duration-700 group-hover:scale-105', sizes='(min-width:1024px) 33vw, 100vw')}
                         <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-primary-700 shadow">{cat}</span>
                         {f'<span class="absolute right-4 top-4 rounded-full bg-navy-dark/80 px-3 py-1 text-xs font-semibold text-white">{year}</span>' if year else ''}
                     </div>
@@ -151,6 +154,8 @@ def build_home():
                     </div>
                 </a>""" for link, foto, cat, t, d, sec, loc, year in FEATURED)
 
+    featured_html_home = featured_html.split("\n                <a href=")
+    featured_html_home = "\n                <a href=".join(featured_html_home[:6])
     capacity_html = "\n".join(f"""                    <div class="flex gap-4">
                         <span class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-accent-400/15 text-accent-300 ring-1 ring-accent-400/30">{icon(ic,'w-6 h-6')}</span>
                         <div><h3 class="mb-1 font-heading font-bold text-white">{t}</h3><p class="text-sm leading-relaxed text-slate-300">{d}</p></div>
@@ -310,13 +315,21 @@ def build_home():
     <section id="proyectos" class="relative bg-slate-50 py-24 lg:py-28">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {section_head('Proyectos', 'Obras que demuestran <span class="text-primary-600">nuestra experiencia</span>', 'Proyectos documentados con fotografías propias de campo.', ic='photo')}
-            <div class="grid gap-8 md:grid-cols-2">
-{featured_html}
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+{featured_html_home}
             </div>
             <div class="reveal mt-14 text-center">
                 <a href="proyectos/" class="btn-primary !px-8 !py-4">Ver todos los proyectos {icon('arrow','w-5 h-5')}</a>
             </div>
         </div>
+    </section>
+
+    <!-- EXPERIENCIA EN CIFRAS -->
+    <section aria-label="Experiencia en cifras" class="bg-white py-16">
+        <div class="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">
+            {''.join(f'<div class="reveal rounded-2xl bg-primary-50 p-6 text-center ring-1 ring-primary-100"><div class="font-heading text-3xl font-extrabold text-navy sm:text-4xl">{v}</div><div class="mt-2 text-sm text-slate-600">{l}</div></div>' for v, l in [("2.63 m³/s", "de bombeo operado en el sistema Huascacocha"), ("30 km", "de conducción por canales y sifones"), ("4 500 m", "s. n. m.: mantenimiento en altura"), ("10 MW", "turbina Francis desmontada")])}
+        </div>
+        <p class="mx-auto mt-8 max-w-4xl px-4 text-center text-sm text-slate-500">Experiencia en proyectos y operaciones para <strong class="text-navy">Sedapal</strong>, <strong class="text-navy">Antamina</strong>, <strong class="text-navy">Unicon</strong>, la <strong class="text-navy">C.H. Yarucaya</strong> y la <strong class="text-navy">PTAR San Bartolo</strong>, entre otros.</p>
     </section>
 
     <!-- CAPACIDAD OPERATIVA -->
@@ -473,7 +486,7 @@ SERVICE_CONTENT = {
         h1="Ingeniería de detalle para transporte de fluidos: líquidos, lodos y aire",
         kicker="Especialidad · Mecánica de fluidos",
         lead="No solo agua. Calculamos y diseñamos sistemas para transportar cualquier fluido de forma segura y eficiente: lodos, relaves, floculantes y reactivos, agua de mar, hidrocarburos y también aire en sistemas de ventilación.",
-        img="proyecto-2.jpg", img_alt="Tuberías, válvulas y bombas de un sistema de transporte de fluidos",
+        img="hc-tuberia-grp", img_alt="Inspección interior de tubería GRP de 1600 mm en un sifón",
         includes=[
             ("calc", "Cálculo hidráulico", "Pérdidas de carga, velocidades, presiones y curva del sistema según las propiedades de cada fluido: densidad, viscosidad y contenido de sólidos."),
             ("columns", "Tuberías y materiales", "Selección de diámetros, clases y materiales (acero, inoxidable, HDPE, GRP) según presión, abrasión y compatibilidad química."),
@@ -482,9 +495,9 @@ SERVICE_CONTENT = {
             ("chart", "Golpe de ariete y transitorios", "Análisis de sobrepresiones por arranque, parada o cierre de válvulas y definición de protecciones."),
             ("doc", "Ingeniería de detalle", "Memorias de cálculo, diagramas de flujo, planos e isométricos, listas de materiales y especificaciones técnicas para comprar y construir."),
         ],
-        experience=[("Transporte de floculantes", "Ingeniería para el transporte de floculantes en planta industrial (Unicon)."),
-                    ("Bombeo de lodos a gran escala", "Pozas de hasta 90 000 m³ en la PTAR San Bartolo."),
-                    ("Conducciones y sifones", "Diseño de conducciones, sifones invertidos y by-pass hidráulicos.")],
+        experience=[("Floculante – Unicon", "Transporte de fluido con floculante: control de caudal, línea presurizada y automatización con PLC."),
+                    ("Agua y lodos – Antamina", "Ingeniería de detalle: poza de 5 500 m³, HDPE de 10\" y bombeo de 80 l/s."),
+                    ("Trasvase – Huascacocha", "Operación de bombeo de hasta 2.63 m³/s y 30 km de canales y sifones.")],
         apps=["Floculantes, reactivos y químicos", "Relaves, pulpas y lodos mineros", "Lodos de plantas de tratamiento", "Agua de mar y salmueras", "Hidrocarburos y combustibles", "Ventilación industrial y de interiores"],
         quote_data=["Fluido a transportar y sus propiedades (densidad, viscosidad, % de sólidos, temperatura)", "Caudal requerido", "Trazo, desniveles y longitudes", "Materiales o equipos existentes", "Normas o especificaciones del cliente", "Alcance: cálculo, ingeniería de detalle, suministro o montaje"],
         faqs=[
@@ -492,8 +505,9 @@ SERVICE_CONTENT = {
             ("¿Qué incluye la ingeniería de detalle?", "Los cálculos hidráulicos, la selección de equipos y materiales, planos e isométricos, listas de materiales y especificaciones técnicas: todo lo necesario para cotizar, comprar y construir sin improvisar en obra."),
             ("¿También diseñan sistemas de ventilación?", "Sí. El aire también es un fluido: calculamos caudales, ductos y pérdidas, y seleccionamos ventiladores para ventilación industrial y de interiores."),
         ],
-        gallery=[("sb-bomba", "Bomba sumergible para lodos montada sobre pontón"), ("sb-descarga", "Descarga de lodos por tubería flexible"), ("sb-noche", "Operación de bombeo de lodos")],
-        case=("ptar-san-bartolo", "Ver el bombeo de lodos en la PTAR San Bartolo"),
+        gallery=[("un-bomba", "Bomba de impulsión de floculante"), ("un-tanque", "Tanque y línea del sistema de floculante"), ("un-rotametro", "Medición de caudal del floculante"),
+                 ("am-reservorio-plano", "Ingeniería de detalle: reservorio de 5 500 m³"), ("hc-valvulas", "Mantenimiento de válvulas en sifón"), ("sb-bomba", "Bomba sumergible para lodos sobre pontón")],
+        case=("sistema-floculante-unicon", "Ver el caso del floculante de Unicon"),
         cta="Hola INGDELCA, quiero cotizar ingeniería para transporte de fluidos",
         related=["sistemas-de-bombeo", "modelamiento-hidraulico"],
     ),
@@ -503,7 +517,7 @@ SERVICE_CONTENT = {
         h1="Centrales hidroeléctricas: estudios, montaje de turbinas y mantenimiento",
         kicker="Especialidad · Energía hidroeléctrica",
         lead="Acompañamos a las centrales hidroeléctricas en todo su ciclo: estudios y cálculos hidroenergéticos, montaje de turbinas y equipos, mantenimiento y protección de su infraestructura hidráulica frente al río.",
-        img="mod-bocatoma", img_alt="Bocatoma de una central hidroeléctrica sobre el río",
+        img="hc-turbina-francis", img_alt="Desmontaje de turbina Francis en la casa de máquinas de una central hidroeléctrica",
         includes=[
             ("calc", "Estudios hidroenergéticos", "Caudales de diseño, salto neto, pérdidas en la conducción, potencia y energía generable."),
             ("bolt", "Montaje de turbinas", "Montaje y alineamiento de turbinas y equipos electromecánicos, con pruebas y puesta en marcha."),
@@ -512,9 +526,9 @@ SERVICE_CONTENT = {
             ("globe", "Protección frente a crecidas", "Modelamiento de inundaciones, defensas ribereñas, enrocados y descolmatación de cauces."),
             ("doc", "Expedientes técnicos", "Memorias, planos, metrados, especificaciones y presupuestos para rehabilitaciones y ampliaciones."),
         ],
-        experience=[("C.H. Yarucaya – río Huaura", "Topografía con dron de 246 ha, estudio de inundaciones con IBER, 245 ml de enrocado y descolmatación del cauce."),
-                    ("Pequeña central hidroeléctrica", "Diseño de obras de captación, conducción y casa de máquinas."),
-                    ("By-pass hidráulico", "Derivación de caudales para el mantenimiento de infraestructura existente.")],
+        experience=[("Turbina Francis de hasta 10 MW", "Desmontaje de turbina Francis para su mantenimiento en casa de máquinas."),
+                    ("C.H. Yarucaya – río Huaura", "Topografía con dron de 246 ha, estudio de inundaciones con IBER, 245 ml de enrocado y descolmatación del cauce."),
+                    ("Compuertas de represa", "Mantenimiento de la unidad hidráulica de compuertas de descarga de la represa Huascacocha.")],
         apps=["Centrales de pasada y pequeñas centrales", "Bocatomas y desarenadores", "Tuberías forzadas", "Casa de máquinas y descargas", "Rehabilitación y repotenciación", "Mantenimiento antes de la temporada de avenidas"],
         quote_data=["Nombre y ubicación de la central", "Potencia instalada y tipo de turbina", "Componente a intervenir", "Problema observado o alcance del estudio", "Información existente (planos, caudales, informes)", "Ventana de parada disponible"],
         faqs=[
@@ -522,7 +536,8 @@ SERVICE_CONTENT = {
             ("¿Qué incluye un estudio hidroenergético?", "Determina el caudal de diseño, el salto neto, las pérdidas en la conducción y, con ello, la potencia y la energía que puede generar la central."),
             ("¿Pueden proteger la central frente a crecidas?", "Sí. Modelamos el río para identificar los sectores críticos y ejecutamos la protección, como en la C.H. Yarucaya."),
         ],
-        gallery=[("aero-casa-maquinas", "Vista aérea de la casa de máquinas de una central"), ("mod-dique", "Modelamiento de crecidas en el sector dique–bocatoma"), ("yaru-enrocado-final", "Enrocado de protección en la zona de descarga")],
+        gallery=[("hc-turbina-francis", "Desmontaje de turbina Francis de hasta 10 MW"), ("hc-unidad-hidraulica", "Unidad hidráulica de compuertas de descarga"), ("aero-casa-maquinas", "Vista aérea de la casa de máquinas de una central"),
+                 ("mod-bocatoma", "Bocatoma de una central hidroeléctrica"), ("mod-dique", "Modelamiento de crecidas en el sector dique–bocatoma"), ("yaru-enrocado-final", "Enrocado de protección en la zona de descarga")],
         case=("ch-yarucaya", "Ver el caso C.H. Yarucaya"),
         cta="Hola INGDELCA, quiero cotizar un servicio para una central hidroeléctrica",
         related=["modelamiento-hidraulico", "defensas-riberenas"],
@@ -598,7 +613,8 @@ SERVICE_CONTENT = {
             ("bulb", "Optimización energética", "Diagnóstico de sistemas existentes, operación en paralelo/serie y uso de variadores de velocidad para reducir costos."),
             ("cube", "Bombeo de lodos y montaje", "Montaje y operación de bombas sumergibles sobre pontones, grupos electrógenos y variadores para servicios a gran escala."),
         ],
-        gallery=[("sb-noche-panoramica", "Bombeo de lodos en pozas de la PTAR San Bartolo"), ("sb-izaje", "Izaje y movilización de equipos"), ("sb-bomba", "Bomba sumergible montada sobre pontón")],
+        gallery=[("hc-operacion-hmi", "Operación de la estación de bombeo Huascacocha (hasta 2.63 m³/s)"), ("sb-noche-panoramica", "Bombeo de lodos en pozas de la PTAR San Bartolo"), ("un-bomba", "Bomba de impulsión de floculante"),
+                 ("sb-izaje", "Izaje y movilización de equipos"), ("sb-bomba", "Bomba sumergible montada sobre pontón"), ("am-curva-bomba", "Selección de bomba por curva característica")],
         case=("ptar-san-bartolo", "Ver el bombeo de lodos en la PTAR San Bartolo"),
         apps=["Bombeo de lodos en PTAR", "Bombeo de relaves y pulpas en minería", "Drenaje de mina y agua fresca", "Captación y bombeo de agua de mar", "Abastecimiento industrial y de procesos", "Sistemas contra incendio y edificaciones", "Rebombeo en redes de agua"],
         quote_data=["Caudal requerido (l/s o m³/h)", "Desnivel entre succión y descarga", "Longitud, diámetro y material de la tubería", "Tipo de fluido y temperatura (agua, agua de mar, pulpa…)", "Ubicación y altitud del proyecto", "Planos, fotos o datos de placa de equipos existentes"],
@@ -632,6 +648,11 @@ SERVICE_CONTENT = {
             ("¿Diseñan canales y sifones para cruce de quebradas?", "Sí. Diseñamos canales abiertos, estructuras de control y sifones invertidos, verificando capacidad, velocidades, pérdidas de carga y protección contra socavación."),
             ("¿Pueden revisar un expediente técnico elaborado por terceros?", "Sí. Realizamos revisión y auditoría técnica de expedientes hidráulicos, con observaciones y recomendaciones sustentadas."),
         ],
+        experience=[("Sifones – Huascacocha", "Inspección de tubería GRP de 1600 mm y mantenimiento de válvulas en 30 km de canales y sifones."),
+                    ("Poza y línea HDPE – Antamina", "Poza de 5 500 m³ con geomembrana y alimentación HDPE de 10\"."),
+                    ("Captación y conducción", "Diseño de obras de captación, conducción y casa de máquinas para pequeña central.")],
+        gallery=[("hc-tuberia-grp", "Tubería GRP de 1600 mm de un sifón"), ("hc-sifon-camara", "Cámara de válvulas de sifón"), ("am-poza-seccion", "Sección de poza con geomembrana HDPE")],
+        case=("sistema-huascacocha", "Ver el sistema Huascacocha"),
         cta="Hola INGDELCA, quiero cotizar un diseño hidráulico",
         related=["modelamiento-hidraulico", "topografia-aerofotogrametria"],
     ),
@@ -1079,6 +1100,120 @@ def build_case_sanbartolo():
     write("proyectos/ptar-san-bartolo/index.html", html)
 
 
+
+# =========================================================================== CASOS (genérico)
+CASES = {
+    "sistema-huascacocha": dict(
+        title="Sistema de Derivación Huascacocha – Rímac: Operación, Bombeo y Mantenimiento | INGDELCA",
+        desc="INGDELCA operó la estación de bombeo del sistema de derivación Huascacocha – Rímac (hasta 2.63 m³/s), con 30 km de conducción por canales y sifones, inspección de tubería GRP de 1600 mm y mantenimiento de válvulas y compuertas a 4 500 m s. n. m.",
+        crumb="Sistema Huascacocha", kicker="Saneamiento · Junín – Lima · Operación y mantenimiento",
+        h1='Sistema de derivación <span class="text-accent-400">Huascacocha – Rímac</span>',
+        lead="Operación y mantenimiento de un sistema de trasvase de agua para Lima: bombeo de gran caudal, conducción por canales y sifones de 30 km, e inspección y mantenimiento de su infraestructura hidráulica a más de 4 500 m s. n. m.",
+        hero="hc-tuberia-grp", hero_alt="Inspección interior de tubería GRP de 1600 mm en un sifón del sistema Huascacocha",
+        metrics=[("2.63 m³/s", "caudal de bombeo"), ("227 150 m³", "trasvasados en 24 h"), ("30 km", "de canales y sifones"), ("4 500 m", "s. n. m.")],
+        sections=[
+            ("operacion", "01", "Operación", "Operación de la estación de bombeo",
+             ["INGDELCA operó la estación de bombeo Huascacocha, con caudales de hasta 2.63 m³/s y trasvases de hasta 227 150 m³ en 24 horas, y la conducción del agua por 30 km de canales y sifones.",
+              "La operación incluye el control desde tableros y pantallas HMI, el seguimiento de niveles y caudales, y la coordinación del trasvase."],
+             ["Bombeo de hasta 2.63 m³/s", "Trasvase de 227 150 m³ en 24 horas", "Conducción por 30 km de canales y sifones", "Operación desde tableros y pantallas HMI"],
+             [("2.63 m³/s", "caudal"), ("24 h", "operación continua")],
+             [("hc-operacion-hmi", "Operación de la estación desde la pantalla HMI"), ("hc-canal", "Canal de conducción del sistema"), ("hc-unidad-hidraulica", "Unidad hidráulica de compuertas de descarga de la represa")]),
+            ("mantenimiento", "02", "Mantenimiento", "Inspección de sifones y mantenimiento de válvulas y compuertas",
+             ["Inspeccionamos por dentro la tubería GRP de 1600 mm de los sifones y desmontamos válvulas de aire, de compuerta y mariposa para su mantenimiento y la verificación de su buen estado, a 4 500 m s. n. m.",
+              "También realizamos el mantenimiento de la unidad hidráulica que acciona las compuertas de descarga de la represa Huascacocha."],
+             ["Inspección interior de tubería GRP de 1600 mm", "Desmontaje y mantenimiento de válvulas de aire, compuerta y mariposa", "Mantenimiento de la unidad hidráulica de compuertas", "Trabajos en altura y espacios confinados con equipos de protección"],
+             [("Ø 1600 mm", "tubería GRP"), ("4 500 m", "s. n. m.")],
+             [("hc-tuberia-grp", "Inspección interior de la tubería GRP de los sifones"), ("hc-valvulas", "Desmontaje de válvulas en cámara de sifón"), ("hc-valvula-compuerta", "Válvula de compuerta del sistema"),
+              ("hc-sifon-camara", "Cámara de válvulas de un sifón"), ("hc-trabajo-altura", "Trabajo con arnés en la estructura de derivación")]),
+        ],
+        cta="Hola INGDELCA, vi el proyecto Huascacocha y quiero cotizar",
+        related=["sistemas-de-bombeo", "transporte-de-fluidos"],
+    ),
+    "sistema-floculante-unicon": dict(
+        title="Sistema de Transporte de Fluido con Floculante y Automatización – Unicon | INGDELCA",
+        desc="INGDELCA puso en marcha y automatizó el sistema de transporte de fluido con floculante de la planta de Unicon en Cajamarquilla: control de caudal, presurización de la línea, PLC e instrumentación.",
+        crumb="Floculante Unicon", kicker="Industria · Cajamarquilla, Lima · 2021",
+        h1='Transporte de fluido con <span class="text-accent-400">floculante</span>: control y automatización',
+        lead="En la planta de Unicon en Cajamarquilla devolvimos a sus condiciones de diseño el sistema que transporta y mezcla el floculante: instrumentación, control de caudal, línea presurizada y automatización con PLC.",
+        hero="un-tablero-equipo", hero_alt="Personal de INGDELCA revisando el tablero del sistema de floculante",
+        metrics=[("PLC", "configurado y en operación"), ("Línea", "presurizada con presostato"), ("Caudal", "controlado en ingreso y salida"), ("2021", "año")],
+        sections=[
+            ("sistema", "01", "Mecánica de fluidos y control", "Del diagnóstico a la puesta en marcha",
+             ["Verificamos la operatividad del sistema de transporte con floculante, reemplazamos el sensor de nivel dañado por uno adecuado al medio, reconfiguramos el PLC Mitsubishi a sus condiciones de diseño y pusimos en marcha el sistema con la mezcla del floculante automatizada.",
+              "Instalamos un presostato con manómetro para mantener siempre presurizada la línea de conducción e impulsión, y medidores para controlar el caudal de ingreso y de salida."],
+             ["Reemplazo del sensor de nivel y verificación de señales analógicas", "Configuración del PLC y de la comunicación", "Presostato para mantener la línea presurizada", "Control y medición de caudal de ingreso y salida", "Mantenimiento eléctrico de agitadores, bombas y tableros"],
+             [("PLC", "Mitsubishi"), ("100 %", "operativo")],
+             [("un-mantenimiento-tablero", "Mantenimiento del tablero de mando"), ("un-plc", "PLC del sistema de floculante"), ("un-bomba", "Bomba de impulsión del floculante"),
+              ("un-presostato", "Presostato y manómetro en la línea"), ("un-rotametro", "Medidor de flujo tipo rotámetro"), ("un-tuberia", "Trabajo en la línea de conducción")]),
+        ],
+        lesson="Criterio de mecánica de fluidos: como el fluido arrastra lodo y es viscoso, recomendamos reemplazar los rotámetros por medidores electromagnéticos o de desplazamiento positivo, que no se obstruyen con este tipo de fluido.",
+        cta="Hola INGDELCA, necesito un sistema de transporte de fluidos",
+        related=["transporte-de-fluidos", "sistemas-de-bombeo"],
+    ),
+    "antamina-lavado-de-agregados": dict(
+        title="Ingeniería de Detalle: Agua y Descarga de Lodos para Planta de Lavado de Agregados – Antamina | INGDELCA",
+        desc="Memoria de cálculo e ingeniería de detalle de INGDELCA para la alimentación, succión e impulsión de agua y la descarga de lodos de una planta de lavado de agregados en Antamina: poza de 5 500 m³, HDPE de 10\" y bombeo de 80 l/s.",
+        crumb="Antamina", kicker="Minería · Áncash · 2022 · Ingeniería de detalle",
+        h1='Ingeniería de detalle: agua y <span class="text-accent-400">descarga de lodos</span>',
+        lead="Para la planta de lavado de agregados de un proyecto de canteras en Antamina desarrollamos la memoria de cálculo y la ingeniería de detalle de todo el circuito de agua: alimentación, poza, succión, impulsión y descarga de lodos.",
+        hero="am-reservorio-plano", hero_alt="Plano en planta del reservorio diseñado para la planta de lavado de agregados",
+        metrics=[("5 500 m³", "de capacidad de poza"), ("80 l/s", "caudal de diseño"), ("10\"", "línea HDPE de alimentación"), ("2022", "año")],
+        sections=[
+            ("ingenieria", "01", "Ingeniería de detalle", "Un circuito de agua completo, calculado",
+             ["Diseñamos la poza de agua de 5 500 m³ revestida con geomembrana HDPE, con verificación de la estabilidad de sus taludes, y la línea de alimentación en HDPE de 10\" empalmada a la red existente de 140 a 160 psi.",
+              "Calculamos la succión y la impulsión para un caudal de 80 l/s, verificamos el NPSH disponible (8.36 m) frente al requerido y seleccionamos las bombas centrífugas a partir de sus curvas, además de la descarga de lodos de la planta."],
+             ["Poza de 5 500 m³ con geomembrana HDPE y borde libre de 0.50 m", "Estabilidad de taludes de la poza", "Línea de alimentación HDPE de 10\" para 140–160 psi", "Succión e impulsión para 80 l/s con verificación de NPSH", "Selección de bombas por curva característica y metrados"],
+             [("8.36 m", "NPSH disponible"), ("4.0 m", "tirante de la poza")],
+             [("am-reservorio-plano", "Reservorio en planta con zona de anclaje y borde libre"), ("am-poza-seccion", "Sección de la poza proyectada con geomembrana HDPE"), ("am-curva-bomba", "Curva de la bomba seleccionada")]),
+        ],
+        cta="Hola INGDELCA, necesito ingeniería de detalle para un sistema de agua o lodos",
+        related=["transporte-de-fluidos", "diseno-hidraulico"],
+    ),
+}
+
+
+def build_case(slug):
+    c = CASES[slug]
+    root, hp = "../../", "../../"
+    url = f"{SITE}/proyectos/{slug}/"
+    ld = jsonld([org_schema(),
+                 {"@type": "Article", "headline": c["title"].split(" | ")[0], "description": c["desc"], "url": url, "inLanguage": "es-PE",
+                  "image": [f"{SITE}/images/obras/{c['hero']}.jpg"], "author": {"@id": ORG_ID}, "publisher": {"@id": ORG_ID}, "datePublished": "2026-11-24"},
+                 {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": SITE + "/"}, {"@type": "ListItem", "position": 2, "name": "Proyectos", "item": SITE + "/proyectos/"}, {"@type": "ListItem", "position": 3, "name": c["crumb"], "item": url}]}])
+    html = head(title=c["title"], description=c["desc"], path=f"/proyectos/{slug}/", root=root, jsonld_html=ld)
+    html += navbar(root, hp)
+    mets = "".join(metric(v, l) for v, l in c["metrics"])
+    html += '\n    <main id="contenido">' + page_hero(root, [("Proyectos", "../"), (c["crumb"], None)], c["kicker"], c["h1"], c["lead"], c["hero"], c["hero_alt"],
+                                                      f'<div class="mt-10 grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-4">{mets}</div>')
+    for i, (anc, num, kick, title, paras, bullets, m, gal) in enumerate(c["sections"]):
+        html += case_section(anc, num, kick, title, paras, bullets, m, gal, bg="bg-white" if i % 2 == 0 else "bg-slate-50")
+    if c.get("lesson"):
+        html += f"""
+    <section class="bg-navy-dark py-16">
+        <div class="reveal mx-auto flex max-w-5xl flex-col items-start gap-6 px-4 sm:flex-row sm:px-6 lg:px-8">
+            <span class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-accent-400 text-navy-dark">{icon('bulb','w-7 h-7')}</span>
+            <p class="text-lg leading-relaxed text-slate-200">{c['lesson']}</p>
+        </div>
+    </section>"""
+    rel = "\n".join(f"""                <a href="../../{s}/" class="card card-hover group flex items-center gap-4 p-6">
+                    <span class="icon-tile !h-12 !w-12">{icon(ic,'w-6 h-6')}</span>
+                    <span class="flex-1 font-heading text-lg font-bold text-navy">{n}</span>
+                    {icon('arrow','w-5 h-5 text-primary-600 transition-transform group-hover:translate-x-1')}
+                </a>""" for s, n, ic in SERVICE_PAGES if s in c["related"])
+    html += f"""
+    <section class="bg-slate-50 pt-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 class="mb-6 font-heading text-xl font-bold text-navy">Servicios relacionados</h2>
+            <div class="mb-16 grid gap-6 md:grid-cols-2">
+{rel}
+            </div>
+        </div>
+    </section>"""
+    html += cta_band(root, c["cta"]) + "\n    </main>\n"
+    html += footer(root, hp)
+    write(f"proyectos/{slug}/index.html", html)
+
+
 # =========================================================================== CERTIFICACIONES
 ISO_TEXT = {
     "ISO 9001:2015": "Asegura que cada estudio, diseño y obra se planifica, controla y verifica con procesos documentados y mejora continua.",
@@ -1194,7 +1329,7 @@ def build_404():
 
 def build_seo_files():
     today = date.today().isoformat()
-    urls = [("/", "1.0")] + [(f"/{s}/", "0.9") for s, _, _ in SERVICE_PAGES] + [("/proyectos/", "0.9"), ("/proyectos/ch-yarucaya/", "0.9"), ("/proyectos/ptar-san-bartolo/", "0.8"), ("/certificaciones/", "0.8"), ("/politica-de-privacidad/", "0.3")]
+    urls = [("/", "1.0")] + [(f"/{s}/", "0.9") for s, _, _ in SERVICE_PAGES] + [("/proyectos/", "0.9"), ("/proyectos/ch-yarucaya/", "0.9"), ("/proyectos/ptar-san-bartolo/", "0.8"), ("/proyectos/sistema-huascacocha/", "0.8"), ("/proyectos/sistema-floculante-unicon/", "0.8"), ("/proyectos/antamina-lavado-de-agregados/", "0.8"), ("/certificaciones/", "0.8"), ("/politica-de-privacidad/", "0.3")]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sm += "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod><priority>{p}</priority></url>\n" for u, p in urls)
     sm += "</urlset>\n"
@@ -1236,7 +1371,10 @@ def build_llms_txt():
              "245 ml de enrocado nuevo; reacomodo de enrocado con geotextil de 300 g/m² en la zona de descarga (~40 m); descolmatación de ~50 ml y ampliación del cauce en 3.50 m.")
     L.append(f"- [Bombeo de lodos – PTAR San Bartolo (Lima)]({SITE}/proyectos/ptar-san-bartolo/): pozas de hasta 90 000 m³, bombas sumergibles sobre pontones, "
              "grupo electrógeno de 170 HP y variador de velocidad para el arranque; operación de día y de noche.")
-    L.append("- Transporte de floculantes – Unicon: ingeniería para el transporte de floculantes en planta industrial.")
+    L.append(f"- [Sistema de derivación Huascacocha – Rímac]({SITE}/proyectos/sistema-huascacocha/): operación de la estación de bombeo de hasta 2.63 m³/s (227 150 m³ en 24 h), conducción de 30 km por canales y sifones, inspección de tubería GRP de 1600 mm y mantenimiento de válvulas y de la unidad hidráulica de compuertas a 4 500 m s. n. m.")
+    L.append(f"- [Sistema de transporte de fluido con floculante – Unicon, Cajamarquilla (2021)]({SITE}/proyectos/sistema-floculante-unicon/): puesta en marcha, control de caudal, presurización de línea y automatización con PLC.")
+    L.append(f"- [Ingeniería de detalle de agua y descarga de lodos – planta de lavado de agregados, Antamina (2022)]({SITE}/proyectos/antamina-lavado-de-agregados/): poza de 5 500 m³ con geomembrana, línea HDPE de 10\", succión e impulsión de 80 l/s, NPSH y selección de bombas.")
+    L.append("- Desmontaje de turbina Francis de hasta 10 MW para mantenimiento de central hidroeléctrica.")
     L.append(f"- [Todos los proyectos]({SITE}/proyectos/)")
     L.append("")
     L.append("## Certificaciones")
@@ -1260,6 +1398,8 @@ if __name__ == "__main__":
     build_projects()
     build_case_yarucaya()
     build_case_sanbartolo()
+    for _c in CASES:
+        build_case(_c)
     build_certs()
     build_privacy()
     build_404()

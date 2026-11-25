@@ -22,7 +22,10 @@
 ## Proyectos
 - [C.H. Yarucaya, río Huaura (Sayán, Lima) – 2026](https://ingdelca.com/proyectos/ch-yarucaya/): levantamiento aerofotogramétrico con dron y GNSS de 246 ha; evaluación del peligro por inundación con IBER 2D para periodos de retorno de 140, 200 y 500 años (Q = 210.6, 220.9 y 247.3 m³/s); 245 ml de enrocado nuevo; reacomodo de enrocado con geotextil de 300 g/m² en la zona de descarga (~40 m); descolmatación de ~50 ml y ampliación del cauce en 3.50 m.
 - [Bombeo de lodos – PTAR San Bartolo (Lima)](https://ingdelca.com/proyectos/ptar-san-bartolo/): pozas de hasta 90 000 m³, bombas sumergibles sobre pontones, grupo electrógeno de 170 HP y variador de velocidad para el arranque; operación de día y de noche.
-- Transporte de floculantes – Unicon: ingeniería para el transporte de floculantes en planta industrial.
+- [Sistema de derivación Huascacocha – Rímac](https://ingdelca.com/proyectos/sistema-huascacocha/): operación de la estación de bombeo de hasta 2.63 m³/s (227 150 m³ en 24 h), conducción de 30 km por canales y sifones, inspección de tubería GRP de 1600 mm y mantenimiento de válvulas y de la unidad hidráulica de compuertas a 4 500 m s. n. m.
+- [Sistema de transporte de fluido con floculante – Unicon, Cajamarquilla (2021)](https://ingdelca.com/proyectos/sistema-floculante-unicon/): puesta en marcha, control de caudal, presurización de línea y automatización con PLC.
+- [Ingeniería de detalle de agua y descarga de lodos – planta de lavado de agregados, Antamina (2022)](https://ingdelca.com/proyectos/antamina-lavado-de-agregados/): poza de 5 500 m³ con geomembrana, línea HDPE de 10", succión e impulsión de 80 l/s, NPSH y selección de bombas.
+- Desmontaje de turbina Francis de hasta 10 MW para mantenimiento de central hidroeléctrica.
 - [Todos los proyectos](https://ingdelca.com/proyectos/)
 
 ## Certificaciones
