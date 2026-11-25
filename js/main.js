@@ -148,6 +148,52 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (href.includes('sistema-bombeo.ingdelca.com')) track('platform_click', { location: where });
   });
 
+  /* ---------- 8a. Visor de fotos (galerías de proyectos) ---------- */
+  const links = Array.from(document.querySelectorAll('[data-lightbox]'));
+  if (links.length) {
+    const box = document.createElement('div');
+    box.className = 'lb fixed inset-0 z-[70] hidden items-center justify-center bg-black/90 p-4';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    box.innerHTML = '<figure class="max-h-full max-w-6xl"><img class="lb-img mx-auto max-h-[80vh] w-auto rounded-lg" alt=""><figcaption class="lb-cap mt-3 text-center text-sm text-white/85"></figcaption></figure>' +
+      '<button type="button" class="lb-close absolute right-4 top-4 h-11 w-11 rounded-full bg-white/15 text-2xl text-white hover:bg-white/30" aria-label="Cerrar">×</button>' +
+      '<button type="button" class="lb-prev absolute left-3 top-1/2 h-12 w-12 -translate-y-1/2 rounded-full bg-white/15 text-2xl text-white hover:bg-white/30" aria-label="Anterior">‹</button>' +
+      '<button type="button" class="lb-next absolute right-3 top-1/2 h-12 w-12 -translate-y-1/2 rounded-full bg-white/15 text-2xl text-white hover:bg-white/30" aria-label="Siguiente">›</button>';
+    document.body.appendChild(box);
+    const img = box.querySelector('.lb-img');
+    const cap = box.querySelector('.lb-cap');
+    let cur = 0;
+    const show = (i) => {
+      cur = (i + links.length) % links.length;
+      img.src = links[cur].getAttribute('href');
+      img.alt = cap.textContent = links[cur].dataset.caption || '';
+      box.classList.remove('hidden'); box.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    };
+    const hide = () => { box.classList.add('hidden'); box.classList.remove('flex'); document.body.style.overflow = ''; };
+    links.forEach((a, i) => a.addEventListener('click', (e) => { e.preventDefault(); show(i); }));
+    box.querySelector('.lb-close').addEventListener('click', hide);
+    box.querySelector('.lb-prev').addEventListener('click', () => show(cur - 1));
+    box.querySelector('.lb-next').addEventListener('click', () => show(cur + 1));
+    box.addEventListener('click', (e) => { if (e.target === box) hide(); });
+    document.addEventListener('keydown', (e) => {
+      if (box.classList.contains('hidden')) return;
+      if (e.key === 'Escape') hide();
+      if (e.key === 'ArrowLeft') show(cur - 1);
+      if (e.key === 'ArrowRight') show(cur + 1);
+    });
+  }
+
+  /* ---------- 8b. Comparador antes / después ---------- */
+  document.querySelectorAll('[data-ba]').forEach((ba) => {
+    const range = ba.querySelector('.ba-range');
+    const before = ba.querySelector('.ba-before');
+    const line = ba.querySelector('.ba-line');
+    const set = (v) => { before.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)'; line.style.left = v + '%'; };
+    range.addEventListener('input', () => set(range.value));
+    set(range.value);
+  });
+
   /* ---------- 8. Año actual en el pie de página ---------- */
   document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 });

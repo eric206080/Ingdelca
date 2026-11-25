@@ -69,11 +69,23 @@ def solid(path, cls="w-5 h-5"):
 
 # ---------------------------------------------------------------- servicios (para menús y schema)
 SERVICE_PAGES = [
-    ("sistemas-de-bombeo", "Sistemas de Bombeo", "bolt"),
+    ("defensas-riberenas", "Defensas Ribereñas y Enrocados", "shield"),
+    ("topografia-aerofotogrametria", "Topografía y Aerofotogrametría con Dron", "globe"),
+    ("modelamiento-hidraulico", "Modelamiento Hidráulico e Inundaciones", "chart"),
     ("diseno-hidraulico", "Diseño Hidráulico y Canales", "columns"),
-    ("modelamiento-hidraulico", "Modelamiento Hidráulico", "chart"),
+    ("sistemas-de-bombeo", "Sistemas de Bombeo", "bolt"),
     ("aforos-de-caudal", "Aforos de Caudal", "calc"),
 ]
+
+ISO_CERTS = [
+    # (norma, sistema, número, archivo PDF)
+    ("ISO 9001:2015", "Gestión de la calidad", "ICO-SSGC-112026-1296-PE", "INGDELCA-ISO-9001.pdf"),
+    ("ISO 14001:2015", "Gestión ambiental", "ICO-SSGA-112026-7656-PE", "INGDELCA-ISO-14001.pdf"),
+    ("ISO 45001:2018", "Seguridad y salud en el trabajo", "ICO-SSGSST-112026-8152-PE", "INGDELCA-ISO-45001.pdf"),
+    ("ISO 37001:2025", "Gestión antisoborno", "ICO-SSGAS-112026-2928-PE", "INGDELCA-ISO-37001.pdf"),
+]
+ISO_VALID = "09/11/2027"
+RUC = "20601839513"
 
 ORG_ID = SITE + "/#organizacion"
 
@@ -87,11 +99,16 @@ def org_schema():
         "url": SITE + "/",
         "logo": SITE + "/images/logo-ingdelca.png",
         "image": SITE + "/images/og-image.jpg",
-        "description": "Empresa peruana de ingeniería hidráulica y consultoría en mecánica de fluidos: diseño hidráulico, sistemas de bombeo, modelamiento hidráulico y aforos de caudal para minería, energía, hidrocarburos, industria y construcción.",
+        "description": "Empresa peruana de ingeniería y obras hidráulicas: topografía con dron, modelamiento hidráulico, diseño, defensas ribereñas, sistemas de bombeo y mantenimiento para minería, energía, saneamiento, industria y entidades públicas. Certificada ISO 9001, 14001, 45001 y 37001.",
+        "taxID": RUC,
+        "hasCredential": [
+            {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": f"{n} – {sis}", "identifier": num,
+             "recognizedBy": {"@type": "Organization", "name": "International Certification Organization (ICO)", "url": "https://icocert.pe"}}
+            for n, sis, num, _ in ISO_CERTS],
         "telephone": "+51948579939",
         "email": EMAIL,
         "priceRange": "$$",
-        "address": {"@type": "PostalAddress", "addressLocality": "Lima", "addressRegion": "Lima", "addressCountry": "PE"},
+        "address": {"@type": "PostalAddress", "addressLocality": "Pachacámac", "addressRegion": "Lima", "addressCountry": "PE"},
         "areaServed": {"@type": "Country", "name": "Perú"},
         "openingHoursSpecification": [
             {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "18:00"},
@@ -99,13 +116,14 @@ def org_schema():
         ],
         "contactPoint": {"@type": "ContactPoint", "telephone": "+51948579939", "email": EMAIL, "contactType": "sales", "areaServed": "PE", "availableLanguage": ["es"]},
         "sameAs": [FACEBOOK, LINKEDIN],
-        "knowsAbout": ["Ingeniería hidráulica", "Mecánica de fluidos", "Sistemas de bombeo", "Selección de bombas", "Modelamiento hidráulico", "Diseño de canales", "Aforos de caudal", "Golpe de ariete"],
+        "knowsAbout": ["Defensas ribereñas", "Enrocados", "Descolmatación de cauces", "Aerofotogrametría con dron", "Topografía GNSS", "Modelamiento de inundaciones", "Ingeniería hidráulica", "Mecánica de fluidos", "Sistemas de bombeo", "Selección de bombas", "Modelamiento hidráulico", "Diseño de canales", "Aforos de caudal", "Golpe de ariete"],
         "hasOfferCatalog": {
             "@type": "OfferCatalog", "name": "Servicios de ingeniería hidráulica",
             "itemListElement": [
                 {"@type": "Offer", "itemOffered": {"@type": "Service", "name": name, "url": f"{SITE}/{slug}/"}}
                 for slug, name, _ in SERVICE_PAGES
-            ] + [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consultoría técnica y supervisión de obras hidráulicas"}}],
+            ] + [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": n}} for n in
+                 ["Consultoría técnica y supervisión de obras hidráulicas", "Montaje de tuberías", "Bombeo de lodos", "Movimiento de tierras"]],
         },
     }
 
@@ -188,8 +206,8 @@ def navbar(root, home_prefix):
     """home_prefix: '' en el inicio, '../' en subpáginas (para enlaces a secciones)."""
     h = home_prefix  # anclas
     home = "#inicio" if not h else h
-    items = [("Inicio", f"{h}#inicio"), ("Servicios", f"{h}#servicios"), ("Sectores", f"{h}#sectores"),
-             ("Proyectos", f"{h}#proyectos"), ("Nosotros", f"{h}#nosotros"), ("Preguntas", f"{h}#preguntas")]
+    items = [("Inicio", f"{h}#inicio"), ("Servicios", f"{h}#servicios"), ("Proyectos", f"{root}proyectos/"),
+             ("Capacidad", f"{h}#capacidad"), ("Certificaciones", f"{root}certificaciones/"), ("Nosotros", f"{h}#nosotros")]
     desk = "\n".join(f'                    <a href="{u}" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-primary-50 hover:text-primary-700">{t}</a>' for t, u in items)
     mob = "\n".join(f'            <a href="{u}" class="block rounded-xl px-4 py-3 font-medium text-slate-700 hover:bg-primary-50 hover:text-primary-700">{t}</a>' for t, u in items + [("Contacto", f"{h}#contacto")])
     mob_services = "\n".join(f'                <a href="{root}{s}/" class="block rounded-lg px-4 py-2 text-sm text-slate-600 hover:bg-primary-50 hover:text-primary-700">{n}</a>' for s, n, _ in SERVICE_PAGES)
@@ -199,21 +217,21 @@ def navbar(root, home_prefix):
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-20 items-center justify-between">
                 {logo_block(root, home)}
-                <nav class="hidden items-center gap-0.5 lg:flex" aria-label="Principal">
+                <nav class="hidden items-center gap-0.5 xl:flex" aria-label="Principal">
 {desk}
                     <a href="{PLATFORM}" target="_blank" rel="noopener" data-track="navbar" class="ml-1 inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold text-accent-700 hover:bg-accent-50">Selección de Bombas {icon('ext','w-3.5 h-3.5')}</a>
                 </nav>
-                <div class="hidden lg:block">
+                <div class="hidden xl:block">
                     <a href="{h}#contacto" class="btn-primary !px-5 !py-2.5 text-sm">Solicitar cotización</a>
                 </div>
-                <button id="mobile-menu-btn" type="button" class="rounded-xl p-2 hover:bg-slate-100 lg:hidden" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">{icon('menu','w-7 h-7 text-navy')}</button>
+                <button id="mobile-menu-btn" type="button" class="rounded-xl p-2 hover:bg-slate-100 xl:hidden" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">{icon('menu','w-7 h-7 text-navy')}</button>
             </div>
         </div>
     </header>
 
     <!-- MENÚ MÓVIL -->
-    <div id="mobile-menu-overlay" class="invisible fixed inset-0 z-50 bg-navy-dark/60 opacity-0 backdrop-blur-sm transition-all duration-300 lg:hidden"></div>
-    <div id="mobile-menu" class="fixed right-0 top-0 z-50 flex h-full w-[85%] max-w-sm translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 lg:hidden" aria-hidden="true">
+    <div id="mobile-menu-overlay" class="invisible fixed inset-0 z-50 bg-navy-dark/60 opacity-0 backdrop-blur-sm transition-all duration-300 xl:hidden"></div>
+    <div id="mobile-menu" class="fixed right-0 top-0 z-50 flex h-full w-[85%] max-w-sm translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 xl:hidden" aria-hidden="true">
         <div class="flex items-center justify-between border-b border-slate-100 p-5">
             <span class="font-brand text-xl font-bold text-navy">INGDELCA</span>
             <button id="mobile-menu-close" type="button" class="rounded-xl p-2 hover:bg-slate-100" aria-label="Cerrar menú">{icon('x','w-6 h-6 text-slate-500')}</button>
@@ -244,7 +262,7 @@ def footer(root, home_prefix):
             <div class="grid gap-10 border-b border-white/10 pb-12 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
                     <div class="mb-4">{logo_block(root, h or '#inicio', dark=True)}</div>
-                    <p class="mb-6 text-sm leading-relaxed">Ingeniería y consultoría especializada en mecánica de fluidos e hidráulica para minería, energía, hidrocarburos, industria y construcción en el Perú.</p>
+                    <p class="mb-6 text-sm leading-relaxed">Ingeniería y obras hidráulicas del estudio a la obra: topografía, modelamiento, defensas ribereñas, bombeo y mantenimiento para minería, energía, saneamiento e industria en el Perú.</p>
                     <div class="flex gap-3">
                         <a href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="INGDELCA en LinkedIn" class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white transition-colors hover:bg-primary-600">{solid(LI_PATH)}</a>
                         <a href="{FACEBOOK}" target="_blank" rel="noopener" aria-label="INGDELCA en Facebook" class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white transition-colors hover:bg-primary-600">{solid(FB_PATH)}</a>
@@ -261,8 +279,10 @@ def footer(root, home_prefix):
                 <div>
                     <h2 class="mb-4 font-heading text-base font-bold text-white">Empresa</h2>
                     <ul class="space-y-3 text-sm">
+                        <li><a href="{root}proyectos/" class="hover:text-white">Proyectos</a></li>
+                        <li><a href="{root}certificaciones/" class="hover:text-white">Certificaciones ISO</a></li>
+                        <li><a href="{h}#capacidad" class="hover:text-white">Capacidad operativa</a></li>
                         <li><a href="{h}#sectores" class="hover:text-white">Sectores</a></li>
-                        <li><a href="{h}#proyectos" class="hover:text-white">Proyectos</a></li>
                         <li><a href="{h}#nosotros" class="hover:text-white">Nosotros</a></li>
                         <li><a href="{h}#preguntas" class="hover:text-white">Preguntas frecuentes</a></li>
                         <li><a href="{root}politica-de-privacidad/" class="hover:text-white">Política de privacidad</a></li>
@@ -271,15 +291,19 @@ def footer(root, home_prefix):
                 <div>
                     <h2 class="mb-4 font-heading text-base font-bold text-white">Contacto</h2>
                     <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-2">{icon('pin','w-4 h-4 text-accent-400')} Lima, Perú</li>
+                        <li class="flex items-center gap-2">{icon('pin','w-4 h-4 text-accent-400')} Pachacámac, Lima – Perú</li>
                         <li><a href="mailto:{EMAIL}" data-track="footer" class="flex items-center gap-2 hover:text-white">{icon('mail','w-4 h-4 text-accent-400')} {EMAIL}</a></li>
                         <li><a href="{wa()}" target="_blank" rel="noopener" data-track="footer" class="flex items-center gap-2 hover:text-white">{solid(WA_PATH,'w-4 h-4 text-green-400')} {WA_DISPLAY}</a></li>
                         <li class="flex items-start gap-2">{icon('clock','w-4 h-4 mt-0.5 text-accent-400')} <span>Lun - Vie: 9:00 a 18:00<br>Sáb: 9:00 a 13:00</span></li>
                     </ul>
                 </div>
             </div>
+            <div class="flex flex-wrap items-center justify-center gap-2 border-b border-white/10 py-6 text-xs">
+                <a href="{root}certificaciones/" class="mr-2 font-semibold text-slate-300 hover:text-white">Sistemas de gestión certificados:</a>
+                {''.join(f'<a href="{root}certificaciones/" class="rounded-full border border-accent-400/30 bg-accent-400/10 px-3 py-1 font-semibold text-accent-200 hover:bg-accent-400/20">{n.split(":")[0]}</a>' for n, *_ in ISO_CERTS)}
+            </div>
             <div class="flex flex-col items-center justify-between gap-4 pt-8 text-sm md:flex-row">
-                <p>&copy; <span data-year>2026</span> INGDELCA Ingeniería &amp; Consultoría. Todos los derechos reservados.</p>
+                <p>&copy; <span data-year>2026</span> INGDELCA Ingeniería &amp; Consultoría S.A.C. · RUC {RUC}. Todos los derechos reservados.</p>
                 <a href="{root}politica-de-privacidad/" class="hover:text-white">Política de privacidad</a>
             </div>
         </div>
@@ -321,3 +345,49 @@ def faq_list(faqs, dark=False):
                     <p class="px-6 pb-6 leading-relaxed text-slate-600">{a}</p>
                 </details>""")
     return "\n                ".join(out)
+
+
+def pic(name, alt, cls, root="", lazy=True, sizes="(min-width:1024px) 33vw, 100vw", w=1600, h=900):
+    """Foto de obra con srcset (images/obras/NAME.jpg y NAME-800.jpg)."""
+    lz = 'loading="lazy" decoding="async"' if lazy else 'fetchpriority="high"'
+    return (f'<img src="{root}images/obras/{name}-800.jpg" srcset="{root}images/obras/{name}-800.jpg 800w, {root}images/obras/{name}.jpg 1600w" '
+            f'sizes="{sizes}" alt="{alt}" width="{w}" height="{h}" {lz} class="{cls}">')
+
+
+def iso_seal(norma, sistema, cls=""):
+    n = norma.split(":")[0].replace("ISO ", "")
+    return f"""<div class="flex items-center gap-3 {cls}">
+                    <span class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary-600 to-navy-dark text-white shadow-lg ring-4 ring-accent-200/70">
+                        <span class="text-center leading-none"><span class="block text-[9px] font-semibold tracking-widest text-accent-200">ISO</span><span class="block font-heading text-[15px] font-extrabold">{n}</span></span>
+                    </span>
+                    <span class="leading-tight"><span class="block font-heading text-sm font-bold text-navy">{norma}</span><span class="block text-xs text-slate-500">{sistema}</span></span>
+                </div>"""
+
+
+def gallery(items, root="", cols="sm:grid-cols-2 lg:grid-cols-3"):
+    """items: (nombre, pie de foto). Abre en visor a pantalla completa (js/main.js)."""
+    out = []
+    for name, cap in items:
+        out.append(f"""<figure class="reveal group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/80">
+                    <a href="{root}images/obras/{name}.jpg" data-lightbox data-caption="{cap}" class="relative block aspect-[4/3] overflow-hidden bg-slate-200">
+                        {pic(name, cap, 'h-full w-full object-cover transition-transform duration-700 group-hover:scale-105', root)}
+                        <span class="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-primary-700 opacity-0 shadow transition-opacity group-hover:opacity-100">{icon('search','w-4 h-4')}</span>
+                    </a>
+                    <figcaption class="px-4 py-3 text-sm text-slate-600">{cap}</figcaption>
+                </figure>""")
+    return f'<div class="grid gap-5 {cols}">' + "\n                ".join(out) + "</div>"
+
+
+def before_after(before, after, cap_b, cap_a, root=""):
+    return f"""<div class="ba relative aspect-[16/9] overflow-hidden rounded-3xl shadow-2xl ring-1 ring-black/5" data-ba>
+                    <img src="{root}images/obras/{after}.jpg" alt="{cap_a}" width="1280" height="720" loading="lazy" class="absolute inset-0 h-full w-full object-cover">
+                    <div class="ba-before absolute inset-0" style="clip-path: inset(0 50% 0 0)">
+                        <img src="{root}images/obras/{before}.jpg" alt="{cap_b}" width="1280" height="720" loading="lazy" class="h-full w-full object-cover">
+                    </div>
+                    <span class="pointer-events-none absolute left-4 top-4 rounded-full bg-navy-dark/80 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">Antes</span>
+                    <span class="pointer-events-none absolute right-4 top-4 rounded-full bg-accent-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">Después</span>
+                    <div class="ba-line pointer-events-none absolute inset-y-0 left-1/2 w-1 -translate-x-1/2 bg-white shadow-[0_0_12px_rgba(0,0,0,.4)]">
+                        <span class="absolute left-1/2 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-primary-700 shadow-lg">⇆</span>
+                    </div>
+                    <input type="range" min="0" max="100" value="50" aria-label="Comparar antes y después" class="ba-range absolute inset-0 h-full w-full cursor-ew-resize opacity-0">
+                </div>"""
