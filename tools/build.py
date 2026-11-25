@@ -67,7 +67,7 @@ PROJECTS = [
 # Proyectos documentados recientes (fichas con foto propia)
 FEATURED = [
     # (slug o ancla, foto, categoría, título, texto, sector, lugar, año)
-    ("proyectos/ch-yarucaya/#proteccion", "yaru-enrocado-excavadora", "Defensa ribereña", "Protección fluvial con enrocado y geotextil", "Reacomodo de enrocado, conformación de talud y uña e instalación de geotextil en la zona de descarga, más descolmatación y ampliación del cauce.", "Energía", "C.H. Yarucaya, Huaura", "2026"),
+    ("proyectos/ch-yarucaya/#proteccion", "yaru-enrocado-excavadora", "Defensa ribereña", "Protección fluvial con enrocado y geotextil", "245 ml de enrocado nuevo, reacomodo de enrocado con geotextil en la zona de descarga, y descolmatación y ampliación del cauce.", "Energía", "C.H. Yarucaya, Huaura", "2026"),
     ("proyectos/ch-yarucaya/#modelamiento", "mod-casa-maquinas", "Modelamiento hidráulico", "Evaluación del peligro por inundación del río Huaura", "Modelamiento 2D con IBER para periodos de retorno de 140, 200 y 500 años, con mapas de tirantes, velocidades y peligro.", "Energía", "C.H. Yarucaya, Huaura", "2026"),
     ("proyectos/ch-yarucaya/#topografia", "aero-gnss-bocatoma", "Topografía", "Levantamiento aerofotogramétrico con dron y GNSS", "246 ha levantadas desde la bocatoma hasta la casa de máquinas: ortomosaico, MDT, MDS y curvas de nivel cada 0.5 m.", "Energía", "C.H. Yarucaya, Huaura", "2026"),
     ("proyectos/ptar-san-bartolo/", "sb-noche-panoramica", "Bombeo", "Bombeo de lodos en pozas de hasta 90 000 m³", "Bombas sumergibles sobre pontones, grupo electrógeno de 170 HP y variador de velocidad para el arranque, con toda la logística a cargo de INGDELCA.", "Saneamiento", "PTAR San Bartolo, Lima", ""),
@@ -93,7 +93,7 @@ YARU_STEPS = [
     # (ancla, número, título, fecha, texto, métrica, foto)
     ("topografia", "01", "Topografía con dron", "Julio 2026", "Vuelo fotogramétrico y 17 puntos de fotocontrol con GNSS diferencial, desde la bocatoma hasta la casa de máquinas.", "246 ha · 743 imágenes", "aero-fotocontrol"),
     ("modelamiento", "02", "Modelamiento de inundaciones", "Julio 2026", "Simulación 2D del río Huaura con IBER para identificar los sectores críticos de la central.", "Tr 140 · 200 · 500 años", "mod-dique"),
-    ("proteccion", "03", "Protección fluvial", "Agosto 2026", "Talud, uña, geotextil de 300 g/m² y reacomodo del enrocado en la zona de descarga de aguas turbinadas.", "≈ 40 m de enrocado", "yaru-enrocado-cat"),
+    ("proteccion", "03", "Protección fluvial", "2026", "Enrocado nuevo, conformación de talud y uña, geotextil de 300 g/m² y reacomodo del enrocado en la zona de descarga.", "245 ml de enrocado nuevo", "yaru-enrocado-cat"),
     ("descolmatacion", "04", "Descolmatación y encauzamiento", "Agosto – setiembre 2026", "Limpieza del cauce, encauzamiento aguas arriba y ampliación de la sección frente a la descarga.", "≈ 50 ml · +3.50 m de ancho", "yaru-descolmatacion"),
 ]
 
@@ -826,7 +826,7 @@ def build_projects():
                 <div class="flex flex-col justify-center p-8 lg:p-12">
                     <p class="mb-2 text-sm font-semibold uppercase tracking-wider text-accent-700">Caso destacado · 2026</p>
                     <h2 class="mb-4 font-heading text-3xl font-extrabold text-navy">C.H. Yarucaya: del dron a la obra</h2>
-                    <p class="mb-6 text-slate-600">Topografía con dron de 246 ha, modelamiento de inundaciones del río Huaura, protección fluvial con enrocado y geotextil, y descolmatación del cauce, en una misma central hidroeléctrica.</p>
+                    <p class="mb-6 text-slate-600">Topografía con dron de 246 ha, modelamiento de inundaciones del río Huaura, 245 ml de enrocado nuevo, protección con geotextil y descolmatación del cauce, en una misma central hidroeléctrica.</p>
                     <span class="inline-flex items-center gap-2 font-semibold text-primary-700 transition-all group-hover:gap-3">Ver el caso completo {icon('arrow','w-5 h-5')}</span>
                 </div>
             </a>
@@ -891,7 +891,7 @@ def case_section(anchor, num, kicker, title, paras, bullets, metrics, gal, bg="b
 
 
 YARU_FAQS = [
-    ("¿Qué trabajos realizó INGDELCA en la C.H. Yarucaya?", "Un levantamiento aerofotogramétrico con dron y GNSS de 246 ha, un estudio de peligro por inundación del río Huaura con modelamiento 2D en IBER, la protección fluvial de la zona de descarga con reacomodo de enrocado y geotextil, y la descolmatación, encauzamiento y ampliación del cauce."),
+    ("¿Qué trabajos realizó INGDELCA en la C.H. Yarucaya?", "Un levantamiento aerofotogramétrico con dron y GNSS de 246 ha, un estudio de peligro por inundación del río Huaura con modelamiento 2D en IBER, 245 ml de enrocado nuevo, la protección de la zona de descarga con reacomodo de enrocado y geotextil, y la descolmatación, encauzamiento y ampliación del cauce."),
     ("¿Qué periodos de retorno se evaluaron?", "Se evaluaron crecidas para periodos de retorno de 140, 200 y 500 años, con caudales máximos estimados de 210.6, 220.9 y 247.3 m³/s a partir de la serie de caudales máximos anuales de la estación Alco–Sayán (1950–2025)."),
 ]
 
@@ -906,10 +906,10 @@ def build_case_yarucaya():
                  {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": SITE + "/"}, {"@type": "ListItem", "position": 2, "name": "Proyectos", "item": SITE + "/proyectos/"}, {"@type": "ListItem", "position": 3, "name": "C.H. Yarucaya", "item": url}]},
                  faq_schema(YARU_FAQS)])
     html = head(title="C.H. Yarucaya: Topografía con Dron, Modelamiento de Inundaciones y Defensa Ribereña | INGDELCA",
-                description="Caso INGDELCA en la C.H. Yarucaya (río Huaura): levantamiento con dron de 246 ha, modelamiento 2D de inundaciones con IBER, enrocado con geotextil y descolmatación del cauce.",
+                description="Caso INGDELCA en la C.H. Yarucaya (río Huaura): levantamiento con dron de 246 ha, modelamiento 2D de inundaciones con IBER, 245 ml de enrocado nuevo, geotextil y descolmatación del cauce.",
                 path="/proyectos/ch-yarucaya/", root=root, jsonld_html=ld)
     html += navbar(root, hp)
-    metrics = f'<div class="mt-10 grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-4">{metric("246 ha", "levantadas con dron")}{metric("Tr 500", "años: escenario extremo")}{metric("≈ 40 m", "de enrocado reacomodado")}{metric("+3.50 m", "de ancho de cauce")}</div>'
+    metrics = f'<div class="mt-10 grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-4">{metric("246 ha", "levantadas con dron")}{metric("Tr 500", "años: escenario extremo")}{metric("245 ml", "de enrocado nuevo")}{metric("+3.50 m", "de ancho de cauce")}</div>'
     nav = "".join(f'<a href="#{a}" class="flex-none rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary-700 ring-1 ring-slate-200 hover:bg-primary-50">{n}. {t}</a>' for a, n, t, *_ in YARU_STEPS)
     html += '\n    <main id="contenido">' + page_hero(root, [("Proyectos", "../"), ("C.H. Yarucaya", None)], "Caso destacado · Sayán, Huaura – Lima · 2026",
                                                       "C.H. Yarucaya: <span class=\"text-accent-400\">del dron a la obra</span>",
@@ -934,11 +934,11 @@ def build_case_yarucaya():
         [("210.6 m³/s", "Tr 140 años"), ("220.9 m³/s", "Tr 200 años"), ("247.3 m³/s", "Tr 500 años"), ("IBER 2D", "v3.4")],
         [("mod-dique", "Tirantes y velocidades en el sector dique–bocatoma (Tr 500 años)"), ("mod-casa-maquinas", "Resultados junto a la casa de máquinas y la descarga"), ("mod-iber-topografia", "Topografía del tramo de estudio en IBER")],
         bg="bg-slate-50")
-    html += case_section("proteccion", "03", "Agosto 2026 · Obra", "Protección fluvial con enrocado y geotextil",
-        ["En la zona de descarga de aguas turbinadas, como medida preventiva frente a crecidas y al Fenómeno El Niño, desarmamos de forma controlada el enrocado existente, conformamos el talud y la uña de protección, instalamos geotextil y recolocamos la roca de forma progresiva con excavadora.",
+    html += case_section("proteccion", "03", "2026 · Obra", "Protección fluvial con enrocado y geotextil",
+        ["Ejecutamos 245 ml de enrocado nuevo para proteger las márgenes del río Huaura en la central. En la zona de descarga de aguas turbinadas, como medida preventiva frente a crecidas y al Fenómeno El Niño, además desarmamos de forma controlada el enrocado existente, conformamos el talud y la uña de protección, instalamos geotextil y recolocamos la roca de forma progresiva con excavadora.",
          "La secuencia talud – uña – geotextil – enrocado forma una solución integrada para controlar la erosión y la pérdida de material en la margen."],
         ["Perfilado y conformación del talud con material granular", "Uña de protección en la base para evitar el descalce", "Geotextil no tejido de 300 g/m² con capa de arena protectora", "Reacomodo de roca con excavadora buscando trabazón y estabilidad"],
-        [("≈ 40 m", "lineales intervenidos"), ("300 g/m²", "geotextil no tejido"), ("4", "etapas: talud, uña, geotextil, roca"), ("100 %", "ejecutado")],
+        [("245 ml", "de enrocado nuevo"), ("≈ 40 m", "de reacomodo en la descarga"), ("300 g/m²", "geotextil no tejido"), ("100 %", "ejecutado")],
         [("yaru-talud", "Talud perfilado y preparación de la base"), ("yaru-geotextil-instalacion", "Tendido manual del geotextil"), ("yaru-geotextil-talud", "Geotextil instalado en el frente de trabajo"),
          ("yaru-enrocado-colocacion", "Inicio de colocación de roca sobre la uña y el geotextil"), ("yaru-enrocado-cat", "Reacomodo progresivo de bloques con excavadora"), ("yaru-enrocado-final", "Enrocado reacomodado y terminado")],
         bg="bg-white")
