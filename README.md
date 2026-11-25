@@ -7,12 +7,14 @@ Sitio estático publicado con GitHub Pages en **https://ingdelca.com**.
 | Ruta | Contenido |
 |---|---|
 | `index.html` | Página principal |
-| `sistemas-de-bombeo/`, `diseno-hidraulico/`, `modelamiento-hidraulico/`, `aforos-de-caudal/` | Páginas por servicio (para Google y Google Ads) |
+| `defensas-riberenas/`, `topografia-aerofotogrametria/`, `modelamiento-hidraulico/`, `diseno-hidraulico/`, `sistemas-de-bombeo/`, `aforos-de-caudal/` | Páginas por servicio (para Google y Google Ads) |
+| `proyectos/`, `proyectos/ch-yarucaya/`, `proyectos/ptar-san-bartolo/` | Portafolio y casos con fotos de obra |
+| `certificaciones/`, `docs/certificados/` | Certificaciones ISO y PDF de los certificados |
 | `politica-de-privacidad/` | Política de privacidad (Ley N.° 29733) |
 | `404.html` | Página de error |
 | `css/main.css` | Estilos compilados (Tailwind, minificado) |
 | `js/main.js` | Menú, videos, formulario → WhatsApp y medición (GA4 / Ads) |
-| `images/`, `videos/` | Imágenes y videos |
+| `images/`, `videos/` | Imágenes y videos. `images/obras/` = fotos de obra optimizadas (sin GPS), en 1600 px y 800 px |
 | `sitemap.xml`, `robots.txt` | Archivos para buscadores |
 | `tools/`, `src/`, `tailwind.config.js` | Código fuente para regenerar las páginas |
 
@@ -41,9 +43,16 @@ const ADS_LEAD_LABEL = 'etiqueta-de-conversion';
 
 Eventos que se registran automáticamente: `whatsapp_click`, `email_click`, `generate_lead` (formulario), `platform_click`.
 
+## Agregar fotos de obra
+
+Guarda la foto en `images/obras/NOMBRE.jpg` (1600 px) y `images/obras/NOMBRE-800.jpg` (800 px), sin datos GPS, y úsala en `tools/build.py` con `pic('NOMBRE', 'descripción', ...)` o en una galería `gallery([...])`.
+
+**No publicar:** montos, órdenes de servicio, coordenadas, datos personales ni logos de clientes sin autorización.
+
 ## Pendientes recomendados
 
 1. **Google Search Console**: verificar `ingdelca.com` y enviar `https://ingdelca.com/sitemap.xml`.
 2. **Google Business Profile**: crear/actualizar la ficha con el mismo teléfono, horario y web.
 3. **Videos del inicio**: los actuales muestran la marca de agua de iStock. Reemplazarlos por videos con licencia o propios (mismos nombres: `videos/video1.mp4`, etc.).
 4. **Testimonios**: confirmar con cada persona su nombre, cargo, empresa y texto.
+5. **Certificaciones ISO**: actualizar `ISO_VALID` en `tools/sitekit.py` y los PDF tras cada auditoría de seguimiento (vencen el 09/11/2027).
