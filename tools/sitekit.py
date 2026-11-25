@@ -11,7 +11,22 @@ EMAIL = "comercial@ingdelca.com"
 FACEBOOK = "https://www.facebook.com/INGDELCA/"
 LINKEDIN = "https://www.linkedin.com/company/65630313/"
 PLATFORM = "https://sistema-bombeo.ingdelca.com/"
-ASSET_VERSION = "20261124"
+import hashlib as _h, os as _os
+_ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+
+
+def _asset_hash():
+    """Versión = huella de css/main.css + js/main.js: cambia sola cuando cambian, para que nadie vea estilos viejos en caché."""
+    m = _h.sha1()
+    for f in ("css/main.css", "js/main.js"):
+        try:
+            m.update(open(_os.path.join(_ROOT, f), "rb").read())
+        except FileNotFoundError:
+            pass
+    return m.hexdigest()[:10]
+
+
+ASSET_VERSION = _asset_hash()
 
 
 def wa(text="Hola INGDELCA, me interesa cotizar un servicio"):
