@@ -1123,7 +1123,57 @@ def build_seo_files():
     sm += "".join(f"  <url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod><priority>{p}</priority></url>\n" for u, p in urls)
     sm += "</urlset>\n"
     write("sitemap.xml", sm)
-    write("robots.txt", f"User-agent: *\nAllow: /\nDisallow: /tools/\nDisallow: /src/\n\nSitemap: {SITE}/sitemap.xml\n")
+    bots = ["Googlebot", "Bingbot", "Google-Extended", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
+            "PerplexityBot", "Perplexity-User", "Applebot", "Applebot-Extended", "Amazonbot", "meta-externalagent", "DuckAssistBot", "CCBot"]
+    robots = "# Buscadores y asistentes de IA: bienvenidos. Queremos que encuentren y citen a INGDELCA.\n"
+    robots += "".join(f"User-agent: {b}\n" for b in bots) + "Allow: /\n\n"
+    robots += "User-agent: *\nAllow: /\nDisallow: /tools/\nDisallow: /src/\n\n"
+    robots += f"Sitemap: {SITE}/sitemap.xml\n"
+    write("robots.txt", robots)
+    write("llms.txt", build_llms_txt())
+
+
+def build_llms_txt():
+    """Resumen en texto plano para asistentes de IA (estándar llms.txt)."""
+    L = []
+    L.append("# INGDELCA Ingeniería & Consultoría S.A.C.")
+    L.append("")
+    L.append("> Empresa peruana de ingeniería y obras hidráulicas, del estudio a la obra: topografía y aerofotogrametría con dron, "
+             "modelamiento hidráulico y de inundaciones, diseño hidráulico, defensas ribereñas y enrocados, descolmatación de cauces, "
+             "sistemas de bombeo (incluido bombeo de lodos), montaje de tuberías y aforos de caudal, para minería, energía, "
+             "saneamiento, industria y entidades públicas en todo el Perú. Certificada ISO 9001, ISO 14001, ISO 45001 e ISO 37001.")
+    L.append("")
+    L.append(f"- Razón social: INGDELCA Ingeniería & Consultoría S.A.C. · RUC {RUC}")
+    L.append("- Ubicación: Pachacámac, Lima, Perú. Atiende proyectos en todo el Perú (costa y sierra).")
+    L.append(f"- WhatsApp: {WA_DISPLAY} · Email: {EMAIL} · Web: {SITE}/")
+    L.append("- Horario: lunes a viernes 9:00–18:00, sábados 9:00–13:00 (hora de Lima).")
+    L.append(f"- Redes: {FACEBOOK} · {LINKEDIN}")
+    L.append(f"- Herramienta: plataforma de selección de bombas en {PLATFORM}")
+    L.append("")
+    L.append("## Servicios")
+    for slug, name, _ in SERVICE_PAGES:
+        L.append(f"- [{name}]({SITE}/{slug}/): {SERVICE_CONTENT[slug]['desc']}")
+    L.append("")
+    L.append("## Proyectos")
+    L.append(f"- [C.H. Yarucaya, río Huaura (Sayán, Lima) – 2026]({SITE}/proyectos/ch-yarucaya/): levantamiento aerofotogramétrico con dron y GNSS de 246 ha; "
+             "evaluación del peligro por inundación con IBER 2D para periodos de retorno de 140, 200 y 500 años (Q = 210.6, 220.9 y 247.3 m³/s); "
+             "245 ml de enrocado nuevo; reacomodo de enrocado con geotextil de 300 g/m² en la zona de descarga (~40 m); descolmatación de ~50 ml y ampliación del cauce en 3.50 m.")
+    L.append(f"- [Bombeo de lodos – PTAR San Bartolo (Lima)]({SITE}/proyectos/ptar-san-bartolo/): pozas de hasta 90 000 m³, bombas sumergibles sobre pontones, "
+             "grupo electrógeno de 170 HP y variador de velocidad para el arranque; operación de día y de noche.")
+    L.append(f"- [Todos los proyectos]({SITE}/proyectos/)")
+    L.append("")
+    L.append("## Certificaciones")
+    for n, sis, num, _ in ISO_CERTS:
+        L.append(f"- {n} – {sis}. Certificado {num}, emitido por International Certification Organization (ICO), vigente hasta {ISO_VALID}.")
+    L.append(f"- Detalle y PDF: {SITE}/certificaciones/ · Verificación: https://icocert.pe")
+    L.append("")
+    L.append("## Preguntas frecuentes")
+    for q, a in HOME_FAQS:
+        L.append(f"- {q} {a}")
+    L.append("")
+    L.append("## Empresa relacionada")
+    L.append("- IMECTEC Ingeniería & Proyectos S.A.C. (https://imectec.com): ingeniería eléctrica y electromecánica, tableros BT/MT, subestaciones y automatización.")
+    return "\n".join(L) + "\n"
 
 
 if __name__ == "__main__":
