@@ -75,7 +75,7 @@ PROJECTS = [
 FEATURED = [
     # (enlace, foto, categoría, título, texto, sector, lugar, año)
     ("proyectos/ch-yarucaya/#proteccion", "yaru-enrocado-excavadora", "Defensa ribereña", "Protección fluvial con enrocado y geotextil", "245 ml de enrocado nuevo, reacomodo de enrocado con geotextil en la zona de descarga, y descolmatación y ampliación del cauce.", "Energía", "C.H. Yarucaya, Huaura", "2026"),
-    ("proyectos/sistema-huascacocha/", "hc-tuberia-grp", "Operación y mantenimiento", "Sistema de derivación Huascacocha – Rímac", "Operación de la estación de bombeo de hasta 2.63 m³/s, conducción de 30 km por canales y sifones, e inspección y mantenimiento a 4 500 m s. n. m.", "Saneamiento", "Junín – Lima", ""),
+    ("proyectos/sistema-huascacocha/", "hc-tuberia-grp", "Operación y mantenimiento", "Sistema de derivación Huascacocha – Rímac", "Operación de la estación de bombeo de hasta 2.63 m³/s, conducción de 30 km por canales y sifones, e inspección y mantenimiento a 4 500 m s. n. m.", "Saneamiento", "Sedapal · Junín – Lima", ""),
     ("proyectos/ch-yarucaya/#modelamiento", "mod-casa-maquinas", "Modelamiento hidráulico", "Evaluación del peligro por inundación del río Huaura", "Modelamiento 2D con IBER para periodos de retorno de 140, 200 y 500 años, con mapas de tirantes, velocidades y peligro.", "Energía", "C.H. Yarucaya, Huaura", "2026"),
     ("proyectos/sistema-floculante-unicon/", "un-tablero-equipo", "Transporte de fluidos", "Sistema de transporte de fluido con floculante", "Puesta en marcha, control de caudal, presurización de la línea y automatización con PLC en planta de Unicon.", "Industria", "Cajamarquilla, Lima", "2021"),
     ("proyectos/antamina-lavado-de-agregados/", "am-reservorio-plano", "Ingeniería de detalle", "Agua y descarga de lodos para planta de lavado de agregados", "Poza de 5 500 m³, línea HDPE de 10\", succión e impulsión de 80 l/s y descarga de lodos para Antamina.", "Minería", "Áncash", "2022"),
@@ -1104,11 +1104,11 @@ def build_case_sanbartolo():
 # =========================================================================== CASOS (genérico)
 CASES = {
     "sistema-huascacocha": dict(
-        title="Sistema de Derivación Huascacocha – Rímac: Operación, Bombeo y Mantenimiento | INGDELCA",
+        title="Sistema de Derivación Huascacocha – Rímac (Sedapal): Operación, Bombeo y Mantenimiento | INGDELCA",
         desc="INGDELCA operó la estación de bombeo del sistema de derivación Huascacocha – Rímac (hasta 2.63 m³/s), con 30 km de conducción por canales y sifones, inspección de tubería GRP de 1600 mm y mantenimiento de válvulas y compuertas a 4 500 m s. n. m.",
-        crumb="Sistema Huascacocha", kicker="Saneamiento · Junín – Lima · Operación y mantenimiento",
+        crumb="Sistema Huascacocha", kicker="Saneamiento · Sedapal · Junín – Lima · Operación y mantenimiento",
         h1='Sistema de derivación <span class="text-accent-400">Huascacocha – Rímac</span>',
-        lead="Operación y mantenimiento de un sistema de trasvase de agua para Lima: bombeo de gran caudal, conducción por canales y sifones de 30 km, e inspección y mantenimiento de su infraestructura hidráulica a más de 4 500 m s. n. m.",
+        lead="Operación y mantenimiento del sistema de trasvase de agua de Sedapal para Lima: bombeo de gran caudal, conducción por canales y sifones de 30 km, e inspección y mantenimiento de su infraestructura hidráulica a más de 4 500 m s. n. m.",
         hero="hc-tuberia-grp", hero_alt="Inspección interior de tubería GRP de 1600 mm en un sifón del sistema Huascacocha",
         metrics=[("2.63 m³/s", "caudal de bombeo"), ("227 150 m³", "trasvasados en 24 h"), ("30 km", "de canales y sifones"), ("4 500 m", "s. n. m.")],
         sections=[
@@ -1371,7 +1371,7 @@ def build_llms_txt():
              "245 ml de enrocado nuevo; reacomodo de enrocado con geotextil de 300 g/m² en la zona de descarga (~40 m); descolmatación de ~50 ml y ampliación del cauce en 3.50 m.")
     L.append(f"- [Bombeo de lodos – PTAR San Bartolo (Lima)]({SITE}/proyectos/ptar-san-bartolo/): pozas de hasta 90 000 m³, bombas sumergibles sobre pontones, "
              "grupo electrógeno de 170 HP y variador de velocidad para el arranque; operación de día y de noche.")
-    L.append(f"- [Sistema de derivación Huascacocha – Rímac]({SITE}/proyectos/sistema-huascacocha/): operación de la estación de bombeo de hasta 2.63 m³/s (227 150 m³ en 24 h), conducción de 30 km por canales y sifones, inspección de tubería GRP de 1600 mm y mantenimiento de válvulas y de la unidad hidráulica de compuertas a 4 500 m s. n. m.")
+    L.append(f"- [Sistema de derivación Huascacocha – Rímac (Sedapal)]({SITE}/proyectos/sistema-huascacocha/): operación de la estación de bombeo de hasta 2.63 m³/s (227 150 m³ en 24 h), conducción de 30 km por canales y sifones, inspección de tubería GRP de 1600 mm y mantenimiento de válvulas y de la unidad hidráulica de compuertas a 4 500 m s. n. m.")
     L.append(f"- [Sistema de transporte de fluido con floculante – Unicon, Cajamarquilla (2021)]({SITE}/proyectos/sistema-floculante-unicon/): puesta en marcha, control de caudal, presurización de línea y automatización con PLC.")
     L.append(f"- [Ingeniería de detalle de agua y descarga de lodos – planta de lavado de agregados, Antamina (2022)]({SITE}/proyectos/antamina-lavado-de-agregados/): poza de 5 500 m³ con geomembrana, línea HDPE de 10\", succión e impulsión de 80 l/s, NPSH y selección de bombas.")
     L.append("- Desmontaje de turbina Francis de hasta 10 MW para mantenimiento de central hidroeléctrica.")
